@@ -43,7 +43,7 @@ public class UsuarioDAO {
     }
 
     public Usuario getUsuario(String usuario, String senha) {
-        String sql = "SELECT usuario WHERE login_usuario = ?;";
+        String sql = "SELECT * from usuario WHERE login_usuario = ?";
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -67,12 +67,13 @@ public class UsuarioDAO {
     }
 
     public boolean inserirUsuario(Usuario usuario) {
-        String sql = "insert into usuario (login_usuario, senha_usuario) values (?, ?);";
+        String sql = "insert into usuario (login_usuario, senha_usuario, idacesso) values (?, ?, ?);";
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, usuario.getLogin());
             ps.setString(2, usuario.getSenha());
+            ps.setInt(3, usuario.getAcesso());
 
             if (ps.executeUpdate() > 0) {
                 System.out.println("Usuario inserido com sucesso!");

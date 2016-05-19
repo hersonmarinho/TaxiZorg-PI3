@@ -4,20 +4,20 @@ public class Usuario {
 
     private String login;
     private String senha;
-    private String acesso;
+    private int acesso;
     private int codUsuario;
 
     public Usuario() {
 
     }
 
-    public Usuario(String login, String senha, String acesso) {
+    public Usuario(String login, String senha, int acesso) {
         this.login = login;
         this.senha = senha;
         this.acesso = acesso;
     }
 
-    public String autenticar(String login, String senha) {
+    public int autenticar(String login, String senha) {
         return this.getAcesso();
     }
 
@@ -45,11 +45,11 @@ public class Usuario {
         this.senha = senha;
     }
 
-    public String getAcesso() {
+    public int getAcesso() {
         return acesso;
     }
 
-    public void setAcesso(String acesso) {
+    public void setAcesso(int acesso) {
         this.acesso = acesso;
     }
 

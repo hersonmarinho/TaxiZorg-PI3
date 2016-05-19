@@ -73,18 +73,20 @@ public class MainServlet extends HttpServlet {
         String telefone = request.getParameter("telefone");
         String usuario = request.getParameter("usuario");
         String senha = request.getParameter("senha");
+        int acesso = Integer.parseInt(request.getParameter("acesso"));
+        
+        Usuario user = new Usuario();
+        user.setLogin(usuario);
+        user.setSenha(senha);
+        user.setAcesso(acesso);
 
         UsuarioDAO userDao = new UsuarioDAO(con.getConexaoMySQL());
-        Usuario user = new Usuario();
-        user.setAcesso(usuario);
-        user.setSenha(senha);
-
         userDao.inserirUsuario(user);
         user = userDao.getUsuario(usuario, senha);
         
-        FuncionarioDAO dao = new FuncionarioDAO(con.getConexaoMySQL());
         Funcionario funcionario = new Funcionario(nome, sobrenome, telefone, user);
-
+        
+        FuncionarioDAO dao = new FuncionarioDAO(con.getConexaoMySQL());
         dao.inserirFuncionario(funcionario);
 
         response.sendRedirect("MainServlet#three");

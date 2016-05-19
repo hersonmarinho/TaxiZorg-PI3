@@ -48,15 +48,15 @@ public class FuncionarioDAO {
     }
     
     public boolean inserirFuncionario(Funcionario funcionario){
-        String sql = "insert into funcionario (matricula_funcionario, nome_funcionario, sobrenome_funcionario, telefone_funcionario, status_funcionario) values (?, ?, ?, ?, ?);";
+        String sql = "insert into funcionario (nome_funcionario, sobrenome_funcionario, telefone_funcionario, status_funcionario, idusuario) values (?, ?, ?, ?, ?);";
         
         try {
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setString(1, funcionario.getMatricula());
-            ps.setString(2, funcionario.getNome());
-            ps.setString(3, funcionario.getSobrenome());
-            ps.setString(4, funcionario.getTelefone());
-            ps.setString(5, "A");
+            ps.setString(1, funcionario.getNome());
+            ps.setString(2, funcionario.getSobrenome());
+            ps.setString(3, funcionario.getTelefone());
+            ps.setString(4, "A");
+            ps.setInt(5, funcionario.getUsuario().getCodUsuario());
             
             if (ps.executeUpdate() > 0){
                 System.out.println("Funcioanrio inserido com sucesso!");
