@@ -25,7 +25,7 @@
                 <nav>
                     <ul>
                         <li><a href="#intro">Bem-Vindo</a></li>
-                        <li><a href="#two">Crie uma viagem</a></li>
+                        <li><a href="ViagemServlet">Crie uma viagem</a></li>
                         <li><a href="#three">Cadastre um Usuario</a></li>
                     </ul>
                 </nav>
@@ -127,12 +127,13 @@
                                         <option value="2">MG - Belo Horizonte</option>
                                         <option vale="3">BH - Vitória</option>
                                         <option value="4">RJ - Rio de Janeiro</option>
-                                        <option value="4">MA - Maranhão</option>
+                                        <option value="5">MA - Maranhão</option>
                                     </select>
                                 </div>
                                 <div class="field half">
                                     <input type="submit" name="button" id="cadastrar" value="Cadastrar" class="botao"/>
                                 </div>
+                                
                             </form>
                         </section>
                     </div>
