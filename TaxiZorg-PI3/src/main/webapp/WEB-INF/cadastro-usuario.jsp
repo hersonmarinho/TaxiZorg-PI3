@@ -27,7 +27,7 @@
                 </div>
                 <div class="field half">
                     <label for="senha">Senha</label>
-                    <input type="text" name="senha" id="password" />
+                    <input type="password" name="senha" id="password" />
                 </div>
                 <div class="field half">
                     <label for="acesso">Tipo de Acesso</label>

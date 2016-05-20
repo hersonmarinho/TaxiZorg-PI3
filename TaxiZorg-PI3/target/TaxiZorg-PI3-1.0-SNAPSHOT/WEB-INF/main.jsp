@@ -27,7 +27,7 @@
                         <li><a href="#intro">Bem-Vindo</a></li>
                         <li><a href="#two">Crie uma viagem</a></li>
                         <li><a href="#three">Cadastre um Usuario</a></li>
-                        <li><a href="Logout">Logout</a></li>
+                        <li><a href="LogoutServlet">Logout</a></li>
                     </ul>
                 </nav>
             </div>

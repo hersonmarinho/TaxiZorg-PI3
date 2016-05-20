@@ -4,9 +4,10 @@ public class Endereco {
 
     private String cep;
     private String logadouro;
-    private int numero;
+    private String numero;
+    private int codEndereco;
 
-    public Endereco(String cep, String logadouro, int numero) {
+    public Endereco(String cep, String logadouro, String numero) {
         this.cep = cep;
         this.logadouro = logadouro;
         this.numero = numero;
@@ -32,11 +33,19 @@ public class Endereco {
         this.logadouro = logadouro;
     }
 
-    public int getNumero() {
+    public String getNumero() {
         return numero;
     }
 
-    public void setNumero(int numero) {
+    public void setNumero(String numero) {
         this.numero = numero;
+    }
+
+    public int getCodEndereco() {
+        return codEndereco;
+    }
+
+    public void setCodEndereco(int codEndereco) {
+        this.codEndereco = codEndereco;
     }
 }

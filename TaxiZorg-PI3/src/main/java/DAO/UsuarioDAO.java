@@ -67,11 +67,12 @@ public class UsuarioDAO {
     }
     
     public boolean login(Usuario usuario){
-        String sql = "SELECT * from usuario WHERE login_usuario = ?";
+        String sql = "SELECT * from usuario WHERE login_usuario = ? and senha_usuario = ?";
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, usuario.getLogin());
+            ps.setString(2, usuario.getSenha());
             ps.executeQuery();
             ResultSet rs = ps.getResultSet();
             Usuario user = new Usuario();
@@ -83,7 +84,7 @@ public class UsuarioDAO {
             }
             ps.close();
             
-            if(user.getLogin() == null){
+            if(user.getLogin() == null || user.getSenha() == null){
                 return false;
             } else {
                 return true;

@@ -15,16 +15,16 @@ public class ViagemDAO {
     }
     
     public boolean agendarViagem(Viagem viagem){
-        String sql = "INSERT INTO viagem (id_end_partida, id_end_destino, cliente_viagem, status_viagem, inicio_viagem, fim_viagem) VALUES (?,?,?,?,?,?);";
+        String sql = "INSERT INTO viagem (cliente_viagem, status_viagem, tipo_viagem, matricula_funcionario, id_end_partida, id_end_destino) VALUES (?,?,?,?,?,?);";
         
         try {
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setObject(1, viagem.getEnderecoPartida());
-            ps.setObject(2, viagem.getEnderecoDestino());
-            ps.setString(3, viagem.getNomeCliente());
-            ps.setString(4, viagem.getStatus());
-            ps.setObject(5, viagem.getInicioViagem());
-            ps.setObject(6, viagem.getFimViagem());
+            ps.setString(1, viagem.getNomeCliente());
+            ps.setString(2, "PROGRESSO");
+            ps.setString(3, viagem.getTipoViagem());
+            ps.setInt(4, viagem.getMatricula_funcionario());
+            ps.setInt(5, viagem.getId_end_partida());
+            ps.setInt(6, viagem.getId_end_destino());
             
             if (ps.executeUpdate() > 0){
                 System.out.println("viagem inserida com sucesso!");

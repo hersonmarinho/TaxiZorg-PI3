@@ -19,9 +19,10 @@ public class LoginServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession sessao = request.getSession(false);
-        if (sessao == null) {
+        if (sessao == null || sessao.getAttribute("usuario") == null) {
             RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/login.jsp");
             rd.forward(request, response);
+            return;
         }
         response.sendRedirect(request.getContextPath() + "/MainServlet");
     }
@@ -42,17 +43,17 @@ public class LoginServlet extends HttpServlet {
         UsuarioDAO dao = new UsuarioDAO(con.getConexaoMySQL());
         
         
-        //if(dao.login(userTela)){
+        if(dao.login(userTela)){
         
             response.sendRedirect(request.getContextPath() + "/MainServlet");
         
-        /*} else {
+        } else {
             
             RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/login.jsp");
             rd.forward(request, response);
             
         }
-        */
+        
     }
 
     @Override

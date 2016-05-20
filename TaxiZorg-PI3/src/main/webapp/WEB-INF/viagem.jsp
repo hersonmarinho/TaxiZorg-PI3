@@ -59,6 +59,18 @@
                     </c:forEach>
                     </select>
                 </div>
+                
+                <!-- Tipo Viagem -->
+                <div class="field half">
+                    <label for="viagem">Tipo de Viagem</label>
+                    <select name="viagem" id="viagem">
+                        <option>Selecione</option>
+                        <option value="comum">Comum</option>
+                        <option value="diario">Diário</option>
+                        <option vale="viagem">Viagem</option>
+                    </select>
+                </div>
+                
                 <div class="field half">
                     <input type="submit" name="button" id="cadastrar" value="Cadastrar" class="botao"/>
                 </div>

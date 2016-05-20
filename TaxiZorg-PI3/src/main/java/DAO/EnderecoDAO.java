@@ -16,42 +16,47 @@ public class EnderecoDAO {
         this.con = con;
     }
 
-    public List<Endereco> listarEndereco(Endereco endereco) {
-        String sql = "SELECT ENDERECO WHERE CEP = ?";
-        List<Endereco> listaEndereco = new ArrayList<>();
+    public Endereco listarEndereco(Endereco endereco) {
+        String sql = "select * from endereco where cep = ? and numero_endereco = ?";
+        Endereco enderecos = new Endereco();
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, endereco.getCep());
+            ps.setString(2, endereco.getNumero());
             ps.executeQuery();
             ResultSet rs = ps.getResultSet();
 
             while (rs.next()) {
-                Endereco enderecos = new Endereco();
-                enderecos.setLogadouro(enderecos.getLogadouro());
-                enderecos.setNumero(enderecos.getNumero());
-                enderecos.setCep(enderecos.getCep());
-                listaEndereco.add(enderecos);
+                
+                enderecos.setCep(rs.getString("CEP"));
+                enderecos.setLogadouro(rs.getString("logradouro_endereco"));
+                enderecos.setNumero(rs.getString("numero_endereco"));
+                enderecos.setCodEndereco(rs.getInt("id_endereco"));
+                
             }
+            System.out.println(enderecos.getCep());
+            System.out.println(enderecos.getNumero());
+            System.out.println(enderecos.getCodEndereco());
 
             ps.close();
-            return listaEndereco;
+            return enderecos;
 
         } catch (SQLException ex) {
             System.out.println("Erro de SQL!");
         }
 
-        return listaEndereco;
+        return null;
     }
 
     public boolean inserirEndereco(Endereco endereco) {
-        String sql = "INSERT INTO ENDERECO (CEP_ENDERECO, LOGADOURO_ENDERECO, NUMERO_ENDERECO) VALUES (?,?,?);";
+        String sql = "INSERT INTO endereco (CEP, logradouro_endereco, numero_endereco) VALUES (?,?,?);";
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, endereco.getCep());
             ps.setString(2, endereco.getLogadouro());
-            ps.setInt(3, endereco.getNumero());
+            ps.setString(3, endereco.getNumero());
 
             if (ps.executeUpdate() > 0) {
                 System.out.println("Endereço inserido com sucesso!");
@@ -76,7 +81,7 @@ public class EnderecoDAO {
             ps.setString(1, endereco.getCep());
             ps.setString(1, endereco.getCep());
             ps.setString(3, endereco.getLogadouro());
-            ps.setInt(4, endereco.getNumero());
+            ps.setString(4, endereco.getNumero());
 
             if (ps.executeUpdate() > 0) {
                 System.out.println("Endereço alterado com sucesso!");
