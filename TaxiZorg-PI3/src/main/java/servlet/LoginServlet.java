@@ -41,7 +41,6 @@ public class LoginServlet extends HttpServlet {
         DBConnection con = new DBConnection();
         UsuarioDAO dao = new UsuarioDAO(con.getConexaoMySQL());
         
-        System.out.println(usuario);
         
         if(dao.login(userTela)){
         

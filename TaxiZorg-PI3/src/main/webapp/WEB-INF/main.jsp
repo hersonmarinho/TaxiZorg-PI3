@@ -56,22 +56,23 @@
                                     <input type="text" name="nome" id="name" />
                                 </div>
                                 <div class="field half">
-                                    <label for="email">Sobrenome</label>
+                                    <label for="sobrenome">Sobrenome</label>
                                     <input type="text" name="sobrenome" id="lastName" />
                                 </div>
                                 <div class="field half">
-                                    <label for="email">Telefone</label>
+                                    <label for="telefone">Telefone</label>
                                     <input type="text" name="telefone" id="tell" />
                                 </div>
                                 <div class="field half">
-                                    <label for="email">Usuario</label>
+                                    <label for="user">Usuario</label>
                                     <input type="text" name="usuario" id="user" />
                                 </div>
                                 <div class="field half">
-                                    <label for="email">Senha</label>
-                                    <input type="text" name="senha" id="password" />
+                                    <label for="senha">Senha</label>
+                                    <input type="password" name="senha" id="password" />
                                 </div>
-                                <div class="field half">
+                                
+                               <div class="field half">
                                     <input type="submit" name="button" id="cadastrar" value="Cadastrar" class="botao"/>
                                 </div>
                             </form>
@@ -79,7 +80,7 @@
                     </div>
                 </div>
             </section
-            
+
             <!-- Three -->
             <section id="three" class="wrapper style1 fade-up">
                 <div class="inner">
@@ -89,24 +90,45 @@
                         <section>
                             <form method="post" action="MainServlet">
                                 <div class="field half first">
-                                    <label for="name">Nome</label>
+                                    <label for="nome">Nome</label>
                                     <input type="text" name="nome" id="name" />
                                 </div>
                                 <div class="field half">
-                                    <label for="email">Sobrenome</label>
+                                    <label for="sobrenome">Sobrenome</label>
                                     <input type="text" name="sobrenome" id="lastName" />
                                 </div>
                                 <div class="field half">
-                                    <label for="email">Telefone</label>
+                                    <label for="telefone">Telefone</label>
                                     <input type="text" name="telefone" id="tell" />
                                 </div>
                                 <div class="field half">
-                                    <label for="email">Usuario</label>
+                                    <label for="usuario">Usuario</label>
                                     <input type="text" name="usuario" id="user" />
                                 </div>
                                 <div class="field half">
-                                    <label for="email">Senha</label>
+                                    <label for="senha">Senha</label>
                                     <input type="text" name="senha" id="password" />
+                                </div>
+                                <div class="field half">
+                                    <label for="acesso">Tipo de Acesso</label>
+                                    <select name="acesso" id="acesso">
+                                        <option>Selecione</option>
+                                        <option value="1">Taxista</option>
+                                        <option value="2">Operador</option>
+                                        <option vale="4">Gerente</option>
+                                        <option value="3">CEO</option>
+                                    </select>
+                                </div>
+                                <div class="field half">
+                                    <label for="unidade">Unidade</label>
+                                    <select name="unidade" id="unidade">
+                                        <option>Selecione</option>
+                                        <option value="1">SP - São Paulo</option>
+                                        <option value="2">MG - Belo Horizonte</option>
+                                        <option vale="3">BH - Vitória</option>
+                                        <option value="4">RJ - Rio de Janeiro</option>
+                                        <option value="4">MA - Maranhão</option>
+                                    </select>
                                 </div>
                                 <div class="field half">
                                     <input type="submit" name="button" id="cadastrar" value="Cadastrar" class="botao"/>
