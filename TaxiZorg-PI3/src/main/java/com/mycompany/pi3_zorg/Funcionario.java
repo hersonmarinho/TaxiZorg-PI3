@@ -7,7 +7,7 @@ public class Funcionario {
     private String nome;
     private String sobrenome;
     private String telefone;
-    private String matricula;
+    private int matricula;
     private String status;
     private Usuario usuario;
 
@@ -46,11 +46,11 @@ public class Funcionario {
         this.telefone = telefone;
     }
 
-    public String getMatricula() {
+    public int getMatricula() {
         return matricula;
     }
 
-    public void setMatricula(String matricula) {
+    public void setMatricula(int matricula) {
         this.matricula = matricula;
     }
 

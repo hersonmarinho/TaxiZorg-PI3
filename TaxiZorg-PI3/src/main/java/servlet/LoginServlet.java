@@ -42,18 +42,17 @@ public class LoginServlet extends HttpServlet {
         UsuarioDAO dao = new UsuarioDAO(con.getConexaoMySQL());
         
         
-        if(dao.login(userTela)){
+        //if(dao.login(userTela)){
         
             response.sendRedirect(request.getContextPath() + "/MainServlet");
         
-        } else {
+        /*} else {
             
             RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/login.jsp");
             rd.forward(request, response);
             
         }
-        
-        
+        */
     }
 
     @Override

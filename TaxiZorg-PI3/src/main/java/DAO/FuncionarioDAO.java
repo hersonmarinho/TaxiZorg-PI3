@@ -78,7 +78,7 @@ public class FuncionarioDAO {
         
         try{
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setString(1, funcionario.getMatricula());
+            ps.setInt(1, funcionario.getMatricula());
             
             if(ps.executeUpdate() > 0){
                 System.out.println("Usuário desativado com sucesso!");
@@ -103,7 +103,7 @@ public class FuncionarioDAO {
             ps.setString(2, funcionario.getSobrenome());
             ps.setString(3, funcionario.getTelefone());
             ps.setString(4, funcionario.getStatus());
-            ps.setString(5, funcionario.getMatricula());
+            ps.setInt(5, funcionario.getMatricula());
             
             if(ps.executeUpdate() > 0){
                 System.out.println("Funcionário alterado com sucesso!");

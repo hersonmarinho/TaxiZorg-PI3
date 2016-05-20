@@ -1,8 +1,10 @@
--- MySQL dump 10.13  Distrib 5.6.24, for Win64 (x86_64)
+CREATE DATABASE  IF NOT EXISTS `zorg` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `zorg`;
+-- MySQL dump 10.13  Distrib 5.7.9, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: zorg
 -- ------------------------------------------------------
--- Server version	5.6.21
+-- Server version	5.7.12-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -26,7 +28,7 @@ CREATE TABLE `endereco` (
   `CEP` int(11) DEFAULT NULL,
   `logradouro_endereco` varchar(100) DEFAULT NULL,
   `numero_endereco` varchar(7) DEFAULT NULL,
-  `id_endereco` int(11) NOT NULL,
+  `id_endereco` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id_endereco`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -40,4 +42,4 @@ CREATE TABLE `endereco` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-05-16 17:53:24
+-- Dump completed on 2016-05-19 21:46:54

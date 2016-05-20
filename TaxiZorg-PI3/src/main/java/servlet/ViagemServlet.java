@@ -5,45 +5,25 @@
  */
 package servlet;
 
+import DAO.TaxistaDAO;
+import DBConnection.DBConnection;
+import com.mycompany.pi3_zorg.Funcionario;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author herso
+ * @author Fabricio
  */
+@WebServlet(name = "ViagemServlet", urlPatterns = {"/Cadastrar/Viagem"})
 public class ViagemServlet extends HttpServlet {
-
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet ViagemServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet ViagemServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
-    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -57,9 +37,8 @@ public class ViagemServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        RequestDispatcher rd
-                = request.getRequestDispatcher("/WEB-INF/viagem.jsp");
-        rd.forward(request, response);
+               
+        response.sendRedirect(request.getContextPath() + "/MainServlet#two");
     }
 
     /**
@@ -73,7 +52,20 @@ public class ViagemServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        // Logica de cadastro de viagem
+        DBConnection con = new DBConnection();
+        // Cadastra o endereço de partida
+        String cepPartida = request.getParameter("ceppartida");
+        String logradouroPartida = request.getParameter("logpartida");
+        int numPartida = Integer.parseInt(request.getParameter("numpartida"));
+        // Cadastra o endereço de destino
+        String cepDestino = request.getParameter("cepdestino");
+        String logradouroDestino = request.getParameter("logdestino");
+        int numDestino = Integer.parseInt(request.getParameter("numdestino"));
+        // Dados do cliente
+        String cliente = request.getParameter("cliente");
+        
+        response.sendRedirect(request.getContextPath() + "/MainServlet#two");
     }
 
     /**

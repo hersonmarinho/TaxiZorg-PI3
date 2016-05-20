@@ -14,7 +14,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ViagemServlet</servlet-name>
-        <url-pattern>/ViagemServlet</url-pattern>
+        <url-pattern>/Cadastrar/Viagem</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
