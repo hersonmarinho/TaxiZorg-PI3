@@ -92,11 +92,7 @@ public class MainServlet extends HttpServlet {
         response.sendRedirect("MainServlet#three");
     }
 
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
+    
     @Override
     public String getServletInfo() {
         return "Short description";

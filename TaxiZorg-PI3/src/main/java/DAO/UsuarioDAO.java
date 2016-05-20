@@ -65,6 +65,35 @@ public class UsuarioDAO {
         }
         return null;
     }
+    
+    public boolean login(Usuario usuario){
+        String sql = "SELECT * from usuario WHERE login_usuario = ?";
+
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, usuario.getLogin());
+            ps.executeQuery();
+            ResultSet rs = ps.getResultSet();
+            Usuario user = new Usuario();
+            
+            while (rs.next()) {
+                user.setCodUsuario(rs.getInt("idusuario"));
+                user.setLogin(rs.getString("login_usuario"));
+                user.setSenha(rs.getString("senha_usuario"));
+            }
+            ps.close();
+            
+            if(user.getLogin() == null){
+                return false;
+            } else {
+                return true;
+            }
+
+        } catch (SQLException ex) {
+            System.out.println("Erro de SQL!");
+        }
+        return false;
+    }
 
     public boolean inserirUsuario(Usuario usuario) {
         String sql = "insert into usuario (login_usuario, senha_usuario, idacesso) values (?, ?, ?);";
