@@ -27,6 +27,7 @@
                         <li><a href="#intro">Bem-Vindo</a></li>
                         <li><a href="#two">Crie uma viagem</a></li>
                         <li><a href="#three">Cadastre um Usuario</a></li>
+                        <li><a href="#four">Desative um Usuario</a></li>
                         <li><a href="LogoutServlet">Logout</a></li>
                     </ul>
                 </nav>
@@ -43,14 +44,19 @@
                     <p>Conte conosco para fazer sua viagem sem se preocupar em dirigir.<br />
                 </div>
             </section>
-            <!-- Two - Cadastro de viagem -->     
+            <!-- Two - Cadastro de viagem -->
             <section id="two" class="wrapper style1 fade-up">
                 <jsp:include page="viagem.jsp" />
             </section>
-            
+
             <!-- Three -->
             <section id="three" class="wrapper style1 fade-up">
                 <jsp:include page="cadastro-usuario.jsp" />
+            </section>
+
+            <!-- Four -->
+            <section id="four" class="wrapper style1 fade-up">
+                <jsp:include page="desativar-usuario.jsp" />
             </section>
 
         </div>
@@ -75,4 +81,3 @@
 
     </body>
 </html>
-

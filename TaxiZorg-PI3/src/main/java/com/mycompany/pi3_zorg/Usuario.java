@@ -1,5 +1,7 @@
 package com.mycompany.pi3_zorg;
 
+import DAO.UsuarioDAO;
+
 public class Usuario {
 
     private String login;
