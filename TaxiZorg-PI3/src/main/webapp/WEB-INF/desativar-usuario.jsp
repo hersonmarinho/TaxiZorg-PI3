@@ -6,7 +6,7 @@
     <div class="split style1">
         <section>
 
-        <form method="post" action="DesativarUsuarioServlet">
+        <form method="post" action="DesativarUsuario">
             <div class="field half">
                 <label for="taxista">Funcionarios</label>
                 <jsp:useBean id="objFuncionario" class="com.mycompany.pi3_zorg.Funcionario" scope="page"> </jsp:useBean>

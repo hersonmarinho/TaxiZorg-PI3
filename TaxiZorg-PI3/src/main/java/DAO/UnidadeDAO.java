@@ -28,11 +28,8 @@ public class UnidadeDAO {
                 Unidade unidade = new Unidade();
                 
                 unidade.setCodUnidade(rs.getInt("idunidade"));
-                System.out.println(unidade.getCodUnidade());
                 unidade.setUf(rs.getString("unidade_estado"));
-                System.out.println(unidade.getUf());
                 unidade.setCidade(rs.getString("unidade_cidade"));
-                System.out.println(unidade.getCidade());
                 unidades.add(unidade);
             }
             

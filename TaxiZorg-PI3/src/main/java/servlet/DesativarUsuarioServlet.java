@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Gabriel
  */
-@WebServlet(name = "DesativarUsuarioServlet", urlPatterns = {"/UsuariosDesativar"})
+@WebServlet (name = "DesativarUsuarioServlet", urlPatterns = {"/DesativarUsuario"})
 public class DesativarUsuarioServlet extends HttpServlet {
 
     /**
@@ -72,7 +72,7 @@ public class DesativarUsuarioServlet extends HttpServlet {
         DBConnection con = new DBConnection();
         Funcionario funcionario = new Funcionario();
         FuncionarioDAO funcionarioDAO = new FuncionarioDAO(con.getConexaoMySQL());
-        // Cadastra o endereço de partida
+        
         int matricula = Integer.parseInt(request.getParameter("funcionarios"));
 
         funcionario.setMatricula(matricula);

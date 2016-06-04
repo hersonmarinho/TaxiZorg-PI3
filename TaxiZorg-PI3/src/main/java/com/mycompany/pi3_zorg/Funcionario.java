@@ -31,10 +31,6 @@ public class Funcionario {
         ArrayList<Funcionario> funcionarios = new ArrayList<>();
 
         funcionarios = funcionarioDAO.listarFuncionarios();
-
-        for(int i = 0; i < funcionarios.size(); i++) {
-            System.out.println(funcionarios.get(i).getNome());
-        }
         
         return funcionarios;
     }

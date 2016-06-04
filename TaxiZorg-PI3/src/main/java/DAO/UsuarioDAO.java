@@ -66,7 +66,8 @@ public class UsuarioDAO {
     }
     
     public boolean login(Usuario usuario){
-        String sql = "SELECT * from usuario WHERE login_usuario = ? and senha_usuario = ?";
+        String sql = "SELECT * FROM usuario JOIN funcionario ON usuario.idusuario = funcionario.idusuario "
+                + "where funcionario.status_funcionario = 'A' and usuario.login_usuario = ? and usuario.senha_usuario = ?";
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
