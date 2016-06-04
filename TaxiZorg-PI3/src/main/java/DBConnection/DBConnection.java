@@ -27,7 +27,7 @@ public class DBConnection {
             String mydatabase = "zorg";
             String url = "jdbc:mysql://" + serverName + "/" + mydatabase;
             String username = "root";
-            String password = "root";
+            String password = "";
 
             connection = DriverManager.getConnection(url, username, password);
 

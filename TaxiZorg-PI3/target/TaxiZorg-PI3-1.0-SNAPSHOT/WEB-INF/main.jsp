@@ -27,6 +27,7 @@
                         <li><a href="#intro">Bem-Vindo</a></li>
                         <li><a href="#two">Crie uma viagem</a></li>
                         <li><a href="#three">Cadastre um Usuario</a></li>
+                        <li><a href="#four">Relatório</a></li>
                         <li><a href="LogoutServlet">Logout</a></li>
                     </ul>
                 </nav>
@@ -52,7 +53,11 @@
             <section id="three" class="wrapper style1 fade-up">
                 <jsp:include page="cadastro-usuario.jsp" />
             </section>
-
+            
+            <!-- Four -->
+            <section id="four" class="wrapper style1 fade-up">
+                <jsp:include page="relatorio.jsp" />
+            </section>
         </div>
 
         <!-- Footer -->

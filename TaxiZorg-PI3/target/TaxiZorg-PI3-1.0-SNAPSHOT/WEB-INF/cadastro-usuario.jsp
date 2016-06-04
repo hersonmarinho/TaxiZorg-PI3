@@ -3,9 +3,12 @@
     Created on : 20/05/2016, 02:21:08
     Author     : Fabricio
 --%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <div class="inner">
     <h2>Cadastrar</h2>
-    <p>Inclua um usuário no sistema.</p>
+    <p>Inclua um usuÃ¡rio no sistema.</p>
     <div class="split style1">
         <section>
             <form method="post" action="Cadastrar/Usuario">
@@ -29,25 +32,25 @@
                     <label for="senha">Senha</label>
                     <input type="password" name="senha" id="password" />
                 </div>
+                <jsp:useBean id="objAcesso" class="com.mycompany.pi3_zorg.Acesso"></jsp:useBean>
                 <div class="field half">
                     <label for="acesso">Tipo de Acesso</label>
                     <select name="acesso" id="acesso">
                         <option>Selecione</option>
-                        <option value="1">Taxista</option>
-                        <option value="2">Operador</option>
-                        <option vale="4">Gerente</option>
-                        <option value="3">CEO</option>
+                    <c:forEach items="${objAcesso.listarAcessos()}" var="acesso">
+                        <option value="${acesso.getIdAcesso()}">${acesso.getTipoAcesso()}</option>
+                    </c:forEach>
                     </select>
                 </div>
-                <div class="field half">
-                    <label for="unidade">Unidade</label>
-                    <select name="unidade" id="unidade">
-                        <option>Selecione</option>
-                        <option value="1">SP - São Paulo</option>
-                        <option value="2">MG - Belo Horizonte</option>
-                        <option vale="3">BH - Vitória</option>
-                        <option value="4">RJ - Rio de Janeiro</option>
-                        <option value="5">MA - Maranhão</option>
+
+                <jsp:useBean id="objUnidade" class="com.mycompany.pi3_zorg.Unidade" scope="page"> </jsp:useBean>
+                    <div class="field half">
+                        <label for="taxista">Unidade</label>
+                        <select name="unidade">
+                            <option value="">Selecione</option>
+                        <c:forEach items="${objUnidade.listarUnidades()}" var="unidade">
+                            <option value="${unidade.getCodUnidade()}">${unidade.getCidade()} - ${unidade.getUf()}</option>
+                        </c:forEach>
                     </select>
                 </div>
                 <div class="field half">
