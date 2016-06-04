@@ -28,10 +28,6 @@
         <servlet-name>LogoutServlet</servlet-name>
         <url-pattern>/LogoutServlet</url-pattern>
     </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>DesativarUsuariosServlet</servlet-name>
-        <url-pattern>/UsuariosDesativar</url-pattern>
-    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
