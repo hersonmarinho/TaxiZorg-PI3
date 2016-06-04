@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package DAO;
 
 import com.mycompany.pi3_zorg.Unidade;
@@ -32,12 +27,19 @@ public class UnidadeDAO {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.executeQuery();
             ResultSet rs = ps.getResultSet();
-            while(rs.next()){
-                Unidade unidade = new Unidade(rs.getString("unidade_estado"),rs.getString("unidade_cidade"));
+            
+            while (rs.next()) {
+                Unidade unidade = new Unidade();
+                
+                unidade.setCodUnidade(rs.getInt("idunidade"));
+                unidade.setUf(rs.getString("unidade_estado"));
+                unidade.setCidade(rs.getString("unidade_cidade"));
                 unidades.add(unidade);
             }
-        }catch(SQLException ex){
-            System.err.println("Não foi possível listar as unidades");
+            ps.close();
+            return unidades;
+        }catch (SQLException ex) {
+            System.out.println("Erro de SQL!");
         }
         return unidades;
     }

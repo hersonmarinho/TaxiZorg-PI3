@@ -11,15 +11,15 @@
                 <h3>Endereço partida</h3>
                 <hr/>
                 <div class="field half first">
-                    <label for="name">CEP</label>
+                    <label for="ceppartida">CEP</label>
                     <input type="text" name="ceppartida" id="cep-partida" />
                 </div>
                 <div class="field half first">
-                    <label for="name">Logradouro</label>
+                    <label for="logpartida">Logradouro</label>
                     <input type="text" name="logpartida" id="log-partida" />
                 </div>
                 <div class="field half first">
-                    <label for="name">Numero</label>
+                    <label for="numpartida">Numero</label>
                     <input type="text" name="numpartida" id="num-partida" />
                 </div>
                 <!-- Dados do endereço de destino -->
@@ -37,12 +37,12 @@
                     <label for="numdestino">Numero</label>
                     <input type="text" name="numdestino" id="num-destino" />
                 </div>
-                
+
                 <!-- Dados do cliente -->
                 <h3>Dados do Cliente</h3>
                 <hr/>
                 <div class="field half">
-                    <label for="user">Nome do cliente</label>
+                    <label for="cliente">Nome do cliente</label>
                     <input type="text" name="cliente" id="cliente" />
                 </div>
 
@@ -50,16 +50,16 @@
                 <h3>Taxista</h3>
                 <hr/>
                 <jsp:useBean id="objTaxista" class="com.mycompany.pi3_zorg.Taxista" scope="page"> </jsp:useBean>
-                <div class="field half">
-                    <label for="taxista">Taxista</label>
-                    <select name="taxista">
-                        <option value="">Selecione</option>
-                    <c:forEach items="${objTaxista.listarDisponiveis()}" var="taxi">
-                        <option value="${taxi.getMatricula()}">${taxi.getNome()} ${taxi.getSobrenome()}</option>
-                    </c:forEach>
+                    <div class="field half">
+                        <label for="taxista">Taxista</label>
+                        <select name="taxista">
+                            <option value="">Selecione</option>
+                        <c:forEach items="${objTaxista.listarDisponiveis()}" var="taxi">
+                            <option value="${taxi.getMatricula()}">${taxi.getNome()} ${taxi.getSobrenome()}</option>
+                        </c:forEach>
                     </select>
                 </div>
-                
+
                 <!-- Tipo Viagem -->
                 <div class="field half">
                     <label for="viagem">Tipo de Viagem</label>
@@ -70,7 +70,7 @@
                         <option vale="viagem">Viagem</option>
                     </select>
                 </div>
-                
+
                 <div class="field half">
                     <input type="submit" name="button" id="cadastrar" value="Cadastrar" class="botao"/>
                 </div>

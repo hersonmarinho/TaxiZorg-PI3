@@ -1,4 +1,4 @@
-<%-- 
+<%--
     Document   : cadastro-usuario
     Created on : 20/05/2016, 02:21:08
     Author     : Fabricio
@@ -16,30 +16,35 @@
                     <label for="nome">Nome</label>
                     <input type="text" name="nome" id="name" />
                 </div>
+
                 <div class="field half">
                     <label for="sobrenome">Sobrenome</label>
                     <input type="text" name="sobrenome" id="lastName" />
                 </div>
+
                 <div class="field half">
                     <label for="telefone">Telefone</label>
                     <input type="text" name="telefone" id="tell" />
                 </div>
+
                 <div class="field half">
                     <label for="usuario">Usuario</label>
                     <input type="text" name="usuario" id="user" />
                 </div>
+
                 <div class="field half">
                     <label for="senha">Senha</label>
                     <input type="password" name="senha" id="password" />
                 </div>
+
                 <jsp:useBean id="objAcesso" class="com.mycompany.pi3_zorg.Acesso"></jsp:useBean>
-                <div class="field half">
-                    <label for="acesso">Tipo de Acesso</label>
-                    <select name="acesso" id="acesso">
-                        <option>Selecione</option>
-                    <c:forEach items="${objAcesso.listarAcessos()}" var="acesso">
-                        <option value="${acesso.getIdAcesso()}">${acesso.getTipoAcesso()}</option>
-                    </c:forEach>
+                    <div class="field half">
+                        <label for="acesso">Tipo de Acesso</label>
+                        <select name="acesso" id="acesso">
+                            <option>Selecione</option>
+                        <c:forEach items="${objAcesso.listarAcessos()}" var="acesso">
+                            <option value="${acesso.getIdAcesso()}">${acesso.getTipoAcesso()}</option>
+                        </c:forEach>
                     </select>
                 </div>
 
@@ -53,6 +58,7 @@
                         </c:forEach>
                     </select>
                 </div>
+
                 <div class="field half">
                     <input type="submit" name="button" id="cadastrar" value="Cadastrar" class="botao"/>
                 </div>

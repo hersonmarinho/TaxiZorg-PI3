@@ -6,13 +6,10 @@
 package servlet;
 
 import DAO.FuncionarioDAO;
-import DAO.UsuarioDAO;
 import DBConnection.DBConnection;
 import com.mycompany.pi3_zorg.Funcionario;
-import com.mycompany.pi3_zorg.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,10 +18,26 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Fabricio
+ * @author Gabriel
  */
-@WebServlet(name = "CadastrarUsuarioServlet", urlPatterns = {"/Cadastrar/Usuario"})
-public class CadastrarUsuarioServlet extends HttpServlet {
+@WebServlet (name = "DesativarUsuarioServlet", urlPatterns = {"/DesativarUsuario"})
+public class DesativarUsuarioServlet extends HttpServlet {
+
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+
+
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -38,9 +51,9 @@ public class CadastrarUsuarioServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        RequestDispatcher rd
-                = request.getRequestDispatcher("/WEB-INF/cadastro-usuario.jsp");
-        rd.forward(request, response);
+        processRequest(request, response);
+
+        response.sendRedirect(request.getContextPath() + "/MainServlet#four");
     }
 
     /**
@@ -54,33 +67,18 @@ public class CadastrarUsuarioServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        processRequest(request, response);
+
         DBConnection con = new DBConnection();
+        Funcionario funcionario = new Funcionario();
+        FuncionarioDAO funcionarioDAO = new FuncionarioDAO(con.getConexaoMySQL());
+        
+        int matricula = Integer.parseInt(request.getParameter("funcionarios"));
 
-        String nome = request.getParameter("nome");
-        String sobrenome = request.getParameter("sobrenome");
-        String telefone = request.getParameter("telefone");
-        String usuario = request.getParameter("usuario");
-        String senha = request.getParameter("senha");
+        funcionario.setMatricula(matricula);
+        funcionarioDAO.desativarFuncionario(funcionario);
         
-        int unidade = Integer.parseInt(request.getParameter("unidade"));
-        int acesso = Integer.parseInt(request.getParameter("acesso"));
-        
-        Usuario user = new Usuario();
-        user.setLogin(usuario);
-        user.setSenha(senha);
-        user.setUnidade(unidade);
-        user.setAcesso(acesso);
-
-        UsuarioDAO userDao = new UsuarioDAO(con.getConexaoMySQL());
-        userDao.inserirUsuario(user);
-        user = userDao.getUsuario(usuario, senha);
-        
-        Funcionario funcionario = new Funcionario(nome, sobrenome, telefone, user);
-        
-        FuncionarioDAO dao = new FuncionarioDAO(con.getConexaoMySQL());
-        dao.inserirFuncionario(funcionario);
-        
-        response.sendRedirect(request.getContextPath() + "/MainServlet#three");
+        response.sendRedirect(request.getContextPath() + "/MainServlet#four");
     }
 
     /**

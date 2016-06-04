@@ -1,6 +1,5 @@
 package DAO;
 
-import com.mycompany.pi3_zorg.Funcionario;
 import com.mycompany.pi3_zorg.Usuario;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -67,7 +66,8 @@ public class UsuarioDAO {
     }
     
     public boolean login(Usuario usuario){
-        String sql = "SELECT * from usuario WHERE login_usuario = ? and senha_usuario = ?";
+        String sql = "SELECT * FROM usuario JOIN funcionario ON usuario.idusuario = funcionario.idusuario "
+                + "where funcionario.status_funcionario = 'A' and usuario.login_usuario = ? and usuario.senha_usuario = ?";
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -97,13 +97,14 @@ public class UsuarioDAO {
     }
 
     public boolean inserirUsuario(Usuario usuario) {
-        String sql = "insert into usuario (login_usuario, senha_usuario, idacesso) values (?, ?, ?);";
+        String sql = "insert into usuario (login_usuario, senha_usuario, idunidade, idacesso) values (?, ?, ?, ?);";
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, usuario.getLogin());
             ps.setString(2, usuario.getSenha());
-            ps.setInt(3, usuario.getAcesso());
+            ps.setInt(3, usuario.getUnidade());
+            ps.setInt(4, usuario.getAcesso());
 
             if (ps.executeUpdate() > 0) {
                 System.out.println("Usuario inserido com sucesso!");
