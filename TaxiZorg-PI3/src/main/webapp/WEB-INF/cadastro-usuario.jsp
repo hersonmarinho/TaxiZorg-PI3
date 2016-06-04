@@ -1,11 +1,11 @@
-<%-- 
+<%--
     Document   : cadastro-usuario
     Created on : 20/05/2016, 02:21:08
     Author     : Fabricio
 --%>
 <div class="inner">
     <h2>Cadastrar</h2>
-    <p>Inclua um usuário no sistema.</p>
+    <p>Inclua um usuï¿½rio no sistema.</p>
     <div class="split style1">
         <section>
             <form method="post" action="Cadastrar/Usuario">
@@ -43,11 +43,11 @@
                     <label for="unidade">Unidade</label>
                     <select name="unidade" id="unidade">
                         <option>Selecione</option>
-                        <option value="1">SP - São Paulo</option>
+                        <option value="1">SP - Sï¿½o Paulo</option>
                         <option value="2">MG - Belo Horizonte</option>
-                        <option vale="3">BH - Vitória</option>
+                        <option vale="3">BH - Vitï¿½ria</option>
                         <option value="4">RJ - Rio de Janeiro</option>
-                        <option value="5">MA - Maranhão</option>
+                        <option value="5">MA - Maranhï¿½o</option>
                     </select>
                 </div>
                 <div class="field half">
