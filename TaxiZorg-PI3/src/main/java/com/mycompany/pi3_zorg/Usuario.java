@@ -1,9 +1,6 @@
 package com.mycompany.pi3_zorg;
 
 import DAO.UsuarioDAO;
-import DBConnection.DBConnection;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Usuario {
 
@@ -20,16 +17,6 @@ public class Usuario {
         this.login = login;
         this.senha = senha;
         this.acesso = acesso;
-    }
-
-    public ArrayList<Usuario> listarUsuarios() {
-        DBConnection con = new DBConnection();
-        UsuarioDAO usuarioDAO = new UsuarioDAO(con.getConexaoMySQL());
-
-        ArrayList<Usuario> usuarios = new ArrayList<>();
-
-        usuarios = usuarioDAO.listarUsuarios();
-        return usuarios;
     }
 
     public int autenticar(String login, String senha) {
