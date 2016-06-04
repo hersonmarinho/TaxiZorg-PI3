@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Gabriel
  */
-@WebServlet(name = "DesativarUsuarioServlet", urlPatterns = {"UsuariosDesativar"})
+@WebServlet(name = "DesativarUsuarioServlet", urlPatterns = {"/UsuariosDesativar"})
 public class DesativarUsuarioServlet extends HttpServlet {
 
     /**
