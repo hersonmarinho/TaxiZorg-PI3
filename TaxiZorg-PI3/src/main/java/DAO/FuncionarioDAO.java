@@ -18,9 +18,9 @@ public class FuncionarioDAO {
         this.con = con;
     }
     
-    public List<Funcionario> listarFuncionarios() {
+    public ArrayList<Funcionario> listarFuncionarios() {
         String sql = "SELECT * from FUNCIONARIO WHERE status_funcionario = 'A';";
-        List<Funcionario> listaFuncionario = new ArrayList<>();
+        ArrayList<Funcionario> listaFuncionario = new ArrayList<>();
         
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -29,11 +29,11 @@ public class FuncionarioDAO {
             
             while (rs.next()) {
                 Funcionario funcionario = new Funcionario();
-                funcionario.setMatricula(funcionario.getMatricula());
-                funcionario.setNome(funcionario.getNome());
-                funcionario.setSobrenome(funcionario.getSobrenome());
-                funcionario.setTelefone(funcionario.getTelefone());
-                funcionario.setStatus(funcionario.getStatus());
+                funcionario.setMatricula(rs.getInt("matricula_funcionario"));
+                funcionario.setNome(rs.getString("nome_funcionario"));
+                funcionario.setSobrenome(rs.getString("sobrenome_funcionario"));
+                funcionario.setTelefone(rs.getString("telefone_funcionario"));
+                funcionario.setStatus(rs.getString("status_funcionario"));
                 listaFuncionario.add(funcionario);
             }
             

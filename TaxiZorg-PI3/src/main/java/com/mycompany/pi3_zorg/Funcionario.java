@@ -1,6 +1,8 @@
 package com.mycompany.pi3_zorg;
 
 import DAO.FuncionarioDAO;
+import DBConnection.DBConnection;
+import java.util.ArrayList;
 
 public class Funcionario {
 
@@ -20,6 +22,21 @@ public class Funcionario {
         this.sobrenome = sobrenome;
         this.telefone = telefone;
         this.usuario = usuario;
+    }
+
+    public ArrayList<Funcionario> listarFuncionarios() {
+        DBConnection con = new DBConnection();
+        FuncionarioDAO funcionarioDAO = new FuncionarioDAO(con.getConexaoMySQL());
+
+        ArrayList<Funcionario> funcionarios = new ArrayList<>();
+
+        funcionarios = funcionarioDAO.listarFuncionarios();
+
+        for(int i = 0; i < funcionarios.size(); i++) {
+            System.out.println(funcionarios.get(i).getNome());
+        }
+        
+        return funcionarios;
     }
 
     public String getNome() {
