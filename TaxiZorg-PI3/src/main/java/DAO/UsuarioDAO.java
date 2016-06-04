@@ -17,9 +17,9 @@ public class UsuarioDAO {
         this.con = con;
     }
 
-    public List<Usuario> listarUsuarios() {
+    public ArrayList<Usuario> listarUsuarios() {
         String sql = "SELECT USUARIO WHERE STATUS = 'A';";
-        List<Usuario> listaUsuario = new ArrayList<>();
+        ArrayList<Usuario> listaUsuario = new ArrayList<>();
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
