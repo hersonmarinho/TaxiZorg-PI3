@@ -31,7 +31,7 @@ public class TaxistaDAO {
                 "JOIN acesso ON usuario.idacesso = acesso.idacesso "
                 + "LEFT JOIN viagem on funcionario.matricula_funcionario = viagem.matricula_funcionario "
                 + "WHERE tipoacesso = 'taxi' AND (viagem.status_viagem <> 'progresso' "
-                + "or viagem.matricula_funcionario is null)";
+                + "or viagem.matricula_funcionario is null) AND funcionario.status_funcionario = 'A'";
         ArrayList<Taxista> taxistas = new ArrayList<>();
 
         try{
