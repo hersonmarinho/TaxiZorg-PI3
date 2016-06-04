@@ -12,6 +12,10 @@
         <servlet-name>LogoutServlet</servlet-name>
         <servlet-class>servlet.LogoutServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DesativarUsuariosServlet</servlet-name>
+        <servlet-class>servlet.DesativarUsuarioServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>MainServlet</servlet-name>
         <url-pattern>/MainServlet</url-pattern>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>LogoutServlet</servlet-name>
         <url-pattern>/LogoutServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DesativarUsuariosServlet</servlet-name>
+        <url-pattern>/UsuariosDesativar</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
