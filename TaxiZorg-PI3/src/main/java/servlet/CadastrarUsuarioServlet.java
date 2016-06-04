@@ -62,11 +62,13 @@ public class CadastrarUsuarioServlet extends HttpServlet {
         String usuario = request.getParameter("usuario");
         String senha = request.getParameter("senha");
         
+        int unidade = Integer.parseInt(request.getParameter("unidade"));
         int acesso = Integer.parseInt(request.getParameter("acesso"));
         
         Usuario user = new Usuario();
         user.setLogin(usuario);
         user.setSenha(senha);
+        user.setUnidade(unidade);
         user.setAcesso(acesso);
 
         UsuarioDAO userDao = new UsuarioDAO(con.getConexaoMySQL());

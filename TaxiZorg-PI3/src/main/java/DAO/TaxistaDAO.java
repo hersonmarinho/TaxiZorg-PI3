@@ -27,7 +27,6 @@ public class TaxistaDAO {
     }
     
     public ArrayList<Taxista> listarTaxista(){
-        System.out.println("Entrei gostoso");
         String sql = "SELECT * FROM funcionario JOIN usuario ON funcionario.idusuario = usuario.idusuario " +
                 "JOIN acesso ON usuario.idacesso = acesso.idacesso "
                 + "LEFT JOIN viagem on funcionario.matricula_funcionario = viagem.matricula_funcionario "

@@ -5,6 +5,7 @@ public class Usuario {
     private String login;
     private String senha;
     private int acesso;
+    private int unidade;
     private int codUsuario;
 
     public Usuario() {
@@ -59,5 +60,13 @@ public class Usuario {
 
     public void setCodUsuario(int codUsuario) {
         this.codUsuario = codUsuario;
+    }
+
+    public int getUnidade() {
+        return unidade;
+    }
+
+    public void setUnidade(int unidade) {
+        this.unidade = unidade;
     }
 }
