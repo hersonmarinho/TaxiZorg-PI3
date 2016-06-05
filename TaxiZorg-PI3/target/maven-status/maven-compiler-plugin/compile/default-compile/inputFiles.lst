@@ -1,34 +1,6 @@
-<<<<<<< HEAD
-C:\Users\Fabricio\Desktop\Projetos\PI\TaxiZorg-PI3\TaxiZorg-PI3\src\main\java\DAO\UsuarioDAO.java
-C:\Users\Fabricio\Desktop\Projetos\PI\TaxiZorg-PI3\TaxiZorg-PI3\src\main\java\DAO\EnderecoDAO.java
-C:\Users\Fabricio\Desktop\Projetos\PI\TaxiZorg-PI3\TaxiZorg-PI3\src\main\java\com\mycompany\pi3_zorg\Taxista.java
-C:\Users\Fabricio\Desktop\Projetos\PI\TaxiZorg-PI3\TaxiZorg-PI3\src\main\java\DBConnection\DBConnection.java
-C:\Users\Fabricio\Desktop\Projetos\PI\TaxiZorg-PI3\TaxiZorg-PI3\src\main\java\servlet\AlterarUsuarioServlet.java
-C:\Users\Fabricio\Desktop\Projetos\PI\TaxiZorg-PI3\TaxiZorg-PI3\src\main\java\DAO\UnidadeDAO.java
-C:\Users\Fabricio\Desktop\Projetos\PI\TaxiZorg-PI3\TaxiZorg-PI3\src\main\java\com\mycompany\pi3_zorg\Usuario.java
-C:\Users\Fabricio\Desktop\Projetos\PI\TaxiZorg-PI3\TaxiZorg-PI3\src\main\java\com\mycompany\pi3_zorg\Acesso.java
-C:\Users\Fabricio\Desktop\Projetos\PI\TaxiZorg-PI3\TaxiZorg-PI3\src\main\java\com\mycompany\pi3_zorg\Ceo.java
-C:\Users\Fabricio\Desktop\Projetos\PI\TaxiZorg-PI3\TaxiZorg-PI3\src\main\java\DAO\AcessoDAO.java
-C:\Users\Fabricio\Desktop\Projetos\PI\TaxiZorg-PI3\TaxiZorg-PI3\src\main\java\com\mycompany\pi3_zorg\Gerente.java
-C:\Users\Fabricio\Desktop\Projetos\PI\TaxiZorg-PI3\TaxiZorg-PI3\src\main\java\servlet\DesativarUsuarioServlet.java
-C:\Users\Fabricio\Desktop\Projetos\PI\TaxiZorg-PI3\TaxiZorg-PI3\src\main\java\servlet\LogoutServlet.java
-C:\Users\Fabricio\Desktop\Projetos\PI\TaxiZorg-PI3\TaxiZorg-PI3\src\main\java\DAO\ViagemDAO.java
-C:\Users\Fabricio\Desktop\Projetos\PI\TaxiZorg-PI3\TaxiZorg-PI3\src\main\java\DAO\FuncionarioDAO.java
-C:\Users\Fabricio\Desktop\Projetos\PI\TaxiZorg-PI3\TaxiZorg-PI3\src\main\java\servlet\CadastrarUsuarioServlet.java
-C:\Users\Fabricio\Desktop\Projetos\PI\TaxiZorg-PI3\TaxiZorg-PI3\src\main\java\com\mycompany\pi3_zorg\Funcionario.java
-C:\Users\Fabricio\Desktop\Projetos\PI\TaxiZorg-PI3\TaxiZorg-PI3\src\main\java\servlet\LoginServlet.java
-C:\Users\Fabricio\Desktop\Projetos\PI\TaxiZorg-PI3\TaxiZorg-PI3\src\main\java\servlet\ViagemServlet.java
-C:\Users\Fabricio\Desktop\Projetos\PI\TaxiZorg-PI3\TaxiZorg-PI3\src\main\java\com\mycompany\pi3_zorg\Relatorio.java
-C:\Users\Fabricio\Desktop\Projetos\PI\TaxiZorg-PI3\TaxiZorg-PI3\src\main\java\DAO\TaxistaDAO.java
-C:\Users\Fabricio\Desktop\Projetos\PI\TaxiZorg-PI3\TaxiZorg-PI3\src\main\java\com\mycompany\pi3_zorg\Unidade.java
-C:\Users\Fabricio\Desktop\Projetos\PI\TaxiZorg-PI3\TaxiZorg-PI3\src\main\java\com\mycompany\pi3_zorg\Endereco.java
-C:\Users\Fabricio\Desktop\Projetos\PI\TaxiZorg-PI3\TaxiZorg-PI3\src\main\java\com\mycompany\pi3_zorg\Operador.java
-C:\Users\Fabricio\Desktop\Projetos\PI\TaxiZorg-PI3\TaxiZorg-PI3\src\main\java\servlet\MainServlet.java
-C:\Users\Fabricio\Desktop\Projetos\PI\TaxiZorg-PI3\TaxiZorg-PI3\src\main\java\com\mycompany\pi3_zorg\Viagem.java
-C:\Users\Fabricio\Desktop\Projetos\PI\TaxiZorg-PI3\TaxiZorg-PI3\src\main\java\servlet\RelatorioServlet.java
-=======
 /Users/Gabriel/Desktop/TaxiZorg-PI3/TaxiZorg-PI3/src/main/java/com/mycompany/pi3_zorg/Ceo.java
 /Users/Gabriel/Desktop/TaxiZorg-PI3/TaxiZorg-PI3/src/main/java/DAO/UnidadeDAO.java
+/Users/Gabriel/Desktop/TaxiZorg-PI3/TaxiZorg-PI3/src/main/java/servlet/AlterarUsuarioServlet.java
 /Users/Gabriel/Desktop/TaxiZorg-PI3/TaxiZorg-PI3/src/main/java/DBConnection/DBConnection.java
 /Users/Gabriel/Desktop/TaxiZorg-PI3/TaxiZorg-PI3/src/main/java/servlet/CancelarViagemServlet.java
 /Users/Gabriel/Desktop/TaxiZorg-PI3/TaxiZorg-PI3/src/main/java/DAO/AcessoDAO.java
@@ -55,4 +27,3 @@ C:\Users\Fabricio\Desktop\Projetos\PI\TaxiZorg-PI3\TaxiZorg-PI3\src\main\java\se
 /Users/Gabriel/Desktop/TaxiZorg-PI3/TaxiZorg-PI3/src/main/java/servlet/DesativarUsuarioServlet.java
 /Users/Gabriel/Desktop/TaxiZorg-PI3/TaxiZorg-PI3/src/main/java/servlet/MainServlet.java
 /Users/Gabriel/Desktop/TaxiZorg-PI3/TaxiZorg-PI3/src/main/java/servlet/ViagemServlet.java
->>>>>>> origin/master

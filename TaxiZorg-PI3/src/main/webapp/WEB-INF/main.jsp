@@ -70,7 +70,7 @@
             </section>
             <!-- Five -->
             <section id="five" class="wrapper style1 fade-up">
-                <jsp:include page="jspf/alterar-usuario.jspf" />
+                <jsp:include page="alterar-usuario.jsp" />
             </section>
             <!--  -->
             <section id="" class="wrapper style1 fade-up">
