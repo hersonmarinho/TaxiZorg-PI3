@@ -1,8 +1,11 @@
 package com.mycompany.pi3_zorg;
 
 
+import DAO.ViagemDAO;
+import DBConnection.DBConnection;
 import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.dateTime;
 import java.sql.Date;
+import java.util.ArrayList;
 
 public class Viagem {
     
@@ -32,6 +35,15 @@ public class Viagem {
         this.matricula_funcionario = matricula_funcionario;
     }
     
+    public ArrayList<Viagem> listarViagens() {
+        DBConnection con = new DBConnection();
+        ViagemDAO viagemDAO = new ViagemDAO(con.getConexaoMySQL());
+
+        ArrayList<Viagem> viagens = new ArrayList<>();
+        viagens = viagemDAO.listarViagens();
+        
+        return viagens;
+    }
     
     
     public String getNomeCliente() {

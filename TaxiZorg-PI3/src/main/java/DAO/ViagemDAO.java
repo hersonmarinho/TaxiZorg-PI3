@@ -90,7 +90,7 @@ public class ViagemDAO {
     }
     
     public ArrayList<Viagem> listarViagens() {
-        String sql = "SELECT * FROM VIAGEM WHERE STATUS_VIAGEM = PROGRESSO";
+        String sql = "SELECT * FROM VIAGEM WHERE STATUS_VIAGEM = 'PROGRESSO'";
         ArrayList<Viagem> listaViagens = new ArrayList<>();
         
         try {
@@ -98,6 +98,8 @@ public class ViagemDAO {
             ps.executeQuery();
             ResultSet rs = ps.getResultSet();
 
+            System.out.println(rs);
+            
             while (rs.next()) {
                 Viagem viagem = new Viagem();
                 
