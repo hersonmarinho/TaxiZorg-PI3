@@ -24,6 +24,7 @@
             <div class="inner">
                 <nav>
                     <ul>
+                        <li><img src="resources/img/taxiicon.png" width="125px" align="middle"  style="margin-right: 25%;"/></li>
                         <li><a href="#intro">Bem-Vindo</a></li>
                         <li><a href="#two">Crie uma viagem</a></li>
                         <li><a href="#six">Concluir Viagem</a></li>
