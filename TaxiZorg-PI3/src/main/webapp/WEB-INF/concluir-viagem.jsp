@@ -10,7 +10,7 @@
             <div class="field half">
                 <label for="taxista"></label>
                 <jsp:useBean id="objViagem" class="com.mycompany.pi3_zorg.Viagem" scope="page"> </jsp:useBean>
-                <select name="funcionarios">
+                <select name="viagem">
                     <option value="">Selecione</option>
                     <c:forEach items="${objViagem.listarViagens()}" var="viagem">
                         <option value="${viagem.getCodViagem()}">${viagem.nomeCliente()}</option>

@@ -5,6 +5,9 @@
  */
 package servlet;
 
+import DAO.ViagemDAO;
+import DBConnection.DBConnection;
+import com.mycompany.pi3_zorg.Viagem;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -63,6 +66,17 @@ public class ConcluirViagemServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        
+        DBConnection con = new DBConnection();
+        Viagem viagem = new Viagem();
+        ViagemDAO viagemDAO = new ViagemDAO(con.getConexaoMySQL());
+        
+        int cod = Integer.parseInt(request.getParameter("viagem"));
+
+        viagem.setCodViagem(cod);
+        viagemDAO.finalizarViagem(viagem);
+        
+        response.sendRedirect(request.getContextPath() + "/MainServlet#six");
     }
 
     /**
