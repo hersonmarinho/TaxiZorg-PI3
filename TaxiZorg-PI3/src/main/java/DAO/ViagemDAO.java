@@ -44,7 +44,7 @@ public class ViagemDAO {
     }
     
     public boolean finalizarViagem(Viagem viagem){
-        String sql = "UPDATE VIAGEM SET STATUS_VIAGEM = 'F' WHERE COD_VIAGEM = ? ";
+        String sql = "UPDATE viagem SET status_viagem = 'F' WHERE idviagem = ? ";
         
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -67,7 +67,7 @@ public class ViagemDAO {
     }
     
     public boolean cancelarViagem(Viagem viagem){
-        String sql = "UPDATE VIAGEM SET STATUS_VIAGEM = 'C' WHERE COD_VIAGEM = ? ";
+        String sql = "UPDATE viagem SET status_viagem = 'C' WHERE idviagem = ? ";
         
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -90,28 +90,24 @@ public class ViagemDAO {
     }
     
     public ArrayList<Viagem> listarViagens() {
-        String sql = "SELECT * FROM VIAGEM WHERE STATUS_VIAGEM = 'PROGRESSO'";
+        String sql = "SELECT * FROM viagem WHERE status_viagem = 'PROGRESSO'";
         ArrayList<Viagem> listaViagens = new ArrayList<>();
         
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.executeQuery();
             ResultSet rs = ps.getResultSet();
-
-            System.out.println(rs);
             
             while (rs.next()) {
                 Viagem viagem = new Viagem();
                 
                 viagem.setCodViagem(rs.getInt("idviagem"));
-                viagem.setMatricula_funcionario(rs.getInt("matricula_funcionario"));
-                viagem.setTipoViagem(rs.getString("tipo_viagem"));
-                viagem.setInicioViagem(rs.getDate("inicio_viagem"));
-                viagem.setFimViagem(rs.getDate("fim_viagem"));
                 viagem.setNomeCliente(rs.getString("cliente_viagem"));
-                viagem.setId_end_destino(rs.getInt("id_end_inicio"));
+                
+                listaViagens.add(viagem);
             }
             ps.close();
+            
             return listaViagens;
         } catch(SQLException ex){
             System.out.println("Erro de SQL!");

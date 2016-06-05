@@ -13,7 +13,7 @@
                 <select name="viagem">
                     <option value="">Selecione</option>
                     <c:forEach items="${objViagem.listarViagens()}" var="viagem">
-                        <option value="${viagem.getCodViagem()}">${viagem.nomeCliente()}</option>
+                        <option value="${viagem.getCodViagem()}">${viagem.getNomeCliente()}</option>
                     </c:forEach>
                 </select>
             </div>
