@@ -2,13 +2,13 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <div class="inner">
-    <h2>Desativar</h2>
+    <h2>Desativar Funcionarios</h2>
     <div class="split style1">
         <section>
 
         <form method="post" action="DesativarUsuario">
             <div class="field half">
-                <label for="taxista">Funcionarios</label>
+                <label for="taxista"></label>
                 <jsp:useBean id="objFuncionario" class="com.mycompany.pi3_zorg.Funcionario" scope="page"> </jsp:useBean>
                 <select name="funcionarios">
                     <option value="">Selecione</option>

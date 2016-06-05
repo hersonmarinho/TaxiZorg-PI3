@@ -1,10 +1,12 @@
 package DAO;
 
+import com.mycompany.pi3_zorg.Usuario;
 import com.mycompany.pi3_zorg.Viagem;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class ViagemDAO {
     
@@ -42,7 +44,7 @@ public class ViagemDAO {
     }
     
     public boolean finalizarViagem(Viagem viagem){
-        String sql = "UPDATE VIAGEM SET STATUS_VIAGEM = 'F' WHERE COD_VIAGEM = ? ";
+        String sql = "UPDATE viagem SET status_viagem = 'F' WHERE idviagem = ? ";
         
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -65,7 +67,7 @@ public class ViagemDAO {
     }
     
     public boolean cancelarViagem(Viagem viagem){
-        String sql = "UPDATE VIAGEM SET STATUS_VIAGEM = 'C' WHERE COD_VIAGEM = ? ";
+        String sql = "UPDATE viagem SET status_viagem = 'C' WHERE idviagem = ? ";
         
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -85,5 +87,32 @@ public class ViagemDAO {
         }
         
         return false;
+    }
+    
+    public ArrayList<Viagem> listarViagens() {
+        String sql = "SELECT * FROM viagem WHERE status_viagem = 'PROGRESSO'";
+        ArrayList<Viagem> listaViagens = new ArrayList<>();
+        
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.executeQuery();
+            ResultSet rs = ps.getResultSet();
+            
+            while (rs.next()) {
+                Viagem viagem = new Viagem();
+                
+                viagem.setCodViagem(rs.getInt("idviagem"));
+                viagem.setNomeCliente(rs.getString("cliente_viagem"));
+                
+                listaViagens.add(viagem);
+            }
+            ps.close();
+            
+            return listaViagens;
+        } catch(SQLException ex){
+            System.out.println("Erro de SQL!");
+        }
+        
+        return listaViagens;
     }
 }

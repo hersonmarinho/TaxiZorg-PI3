@@ -60,10 +60,12 @@
         <servlet-name>CancelarViagemServlet</servlet-name>
         <url-pattern>/Cancelar/Viagem</url-pattern>
     </servlet-mapping>
+
     <servlet-mapping>
         <servlet-name>AlterarUsuarioServlet</servlet-name>
         <url-pattern>/Usuario/Alterar</url-pattern>
     </servlet-mapping>
+
     <session-config>
         <session-timeout>
             30
