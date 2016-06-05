@@ -12,6 +12,7 @@
     <div class="split style1">
         <section>
             <form method="post" action="Cadastrar/Usuario">
+                <input type="hidden" id="matricula" name="matricula" />
                 <div class="field half first">
                     <label for="nome">Nome</label>
                     <input type="text" name="nome" id="name" />

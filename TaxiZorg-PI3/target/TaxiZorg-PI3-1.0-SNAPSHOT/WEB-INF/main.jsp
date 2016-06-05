@@ -28,7 +28,8 @@
                         <li><a href="#two">Crie uma viagem</a></li>
                         <li><a href="#three">Cadastre um Usuario</a></li>
                         <li><a href="#four">Desative um Usuario</a></li>
-                        <li><a href="#five">Relatório</a></li>
+                        <li><a href="#five">Altere um Usuario</a></li>
+                        <li><a href="#">Relatório</a></li>
                         <li><a href="LogoutServlet">Logout</a></li>
                     </ul>
                 </nav>
@@ -59,6 +60,10 @@
             </section>
             <!-- Five -->
             <section id="five" class="wrapper style1 fade-up">
+                <jsp:include page="jspf/alterar-usuario.jspf" />
+            </section>
+            <!--  -->
+            <section id="" class="wrapper style1 fade-up">
                 <jsp:include page="relatorio.jsp" />
             </section>
         </div>

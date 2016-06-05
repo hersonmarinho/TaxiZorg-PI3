@@ -20,6 +20,10 @@
         <servlet-name>DesativarUsuarioServlet</servlet-name>
         <servlet-class>servlet.DesativarUsuarioServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AlterarUsuarioServlet</servlet-name>
+        <servlet-class>servlet.AlterarUsuarioServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>MainServlet</servlet-name>
         <url-pattern>/MainServlet</url-pattern>
@@ -39,6 +43,10 @@
     <servlet-mapping>
         <servlet-name>DesativarUsuarioServlet</servlet-name>
         <url-pattern>/DesativarUsuario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AlterarUsuarioServlet</servlet-name>
+        <url-pattern>/Usuario/Alterar</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
