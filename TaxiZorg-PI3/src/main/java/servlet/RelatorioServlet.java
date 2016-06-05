@@ -5,6 +5,8 @@
  */
 package servlet;
 
+import com.mycompany.pi3_zorg.Relatorio;
+import com.mycompany.pi3_zorg.Taxista;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -31,6 +33,8 @@ public class RelatorioServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+        response.sendRedirect(request.getContextPath() + "/MainServlet#eigth");
+        
     }
 
     /**
@@ -44,6 +48,17 @@ public class RelatorioServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        
+        int idtaxista = Integer.parseInt(request.getParameter("taxista"));
+        
+        Taxista taxista = new Taxista();
+        taxista.setMatricula(idtaxista);
+        
+        Relatorio relatorio = new Relatorio();
+        relatorio.listarRelatoriosTaxista();
+        
+        //response.sendRedirect(request.getContextPath() + "/MainServlet#eight");
         
     }
 

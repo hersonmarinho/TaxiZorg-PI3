@@ -58,5 +58,40 @@ public class TaxistaDAO {
 
         return taxistas;
     }
+    
+    public ArrayList<Taxista> listarTodosTaxista(){
+        String sql = "SELECT * FROM funcionario JOIN usuario ON funcionario.idusuario = usuario.idusuario "
+                    + "left join acesso on usuario.idacesso = acesso.idacesso "
+                    + "WHERE tipoacesso = 'taxi'";
+        ArrayList<Taxista> taxistas = new ArrayList<>();
+
+        try{
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.executeQuery();
+            ResultSet rs = ps.getResultSet();
+
+            while (rs.next()) {
+                Taxista taxista = new Taxista();
+
+                taxista.setMatricula(rs.getInt("matricula_funcionario"));
+                taxista.setNome(rs.getString("nome_funcionario"));
+                taxista.setSobrenome(rs.getString("sobrenome_funcionario"));
+                taxista.setTelefone(rs.getString("telefone_funcionario"));
+                taxista.setStatus(rs.getString("status_funcionario"));
+                taxistas.add(taxista);
+            }
+
+            ps.close();
+            return taxistas;
+        }catch (SQLException ex) {
+            System.out.println("Erro de SQL!");
+        }
+
+        return taxistas;
+    }
+    
+    
+    
+    
 
 }

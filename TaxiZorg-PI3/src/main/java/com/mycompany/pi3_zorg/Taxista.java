@@ -24,4 +24,16 @@ public class Taxista extends Funcionario {
         taxistas = taxistaDao.listarTaxista();
         return taxistas;
     }
+    
+    public ArrayList<Taxista> listarTodosDisponiveis(){
+        DBConnection con = new DBConnection();
+        TaxistaDAO taxistaDao = new TaxistaDAO(con.getConexaoMySQL());
+
+        ArrayList<Taxista> taxistas = new ArrayList<>();
+        
+        taxistas = taxistaDao.listarTodosTaxista();
+        return taxistas;
+    }
+    
+    
 }
