@@ -24,6 +24,10 @@
         <servlet-name>ConcluirViagemServlet</servlet-name>
         <servlet-class>servlet.ConcluirViagemServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CancelarViagemServlet</servlet-name>
+        <servlet-class>servlet.CancelarViagemServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>MainServlet</servlet-name>
         <url-pattern>/MainServlet</url-pattern>
@@ -47,6 +51,10 @@
     <servlet-mapping>
         <servlet-name>ConcluirViagemServlet</servlet-name>
         <url-pattern>/Concluir/Viagem</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CancelarViagemServlet</servlet-name>
+        <url-pattern>/Cancelar/Viagem</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

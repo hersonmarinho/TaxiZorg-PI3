@@ -27,6 +27,7 @@
                         <li><a href="#intro">Bem-Vindo</a></li>
                         <li><a href="#two">Crie uma viagem</a></li>
                         <li><a href="#six">Concluir Viagem</a></li>
+                        <li><a href="#seven">Cancelar Viagem</a></li>
                         <li><a href="#three">Cadastre um Usuario</a></li>
                         <li><a href="#four">Desative um Usuario</a></li>
                         <li><a href="#five">Relatório</a></li>
@@ -53,6 +54,10 @@
             <!-- Six -->
             <section id="six" class="wrapper style1 fade-up">
                 <jsp:include page="concluir-viagem.jsp" />
+            </section>
+            <!-- Seven -->
+            <section id="seven" class="wrapper style1 fade-up">
+                <jsp:include page="cancelar-viagem.jsp" />
             </section>
             <!-- Three -->
             <section id="three" class="wrapper style1 fade-up">
