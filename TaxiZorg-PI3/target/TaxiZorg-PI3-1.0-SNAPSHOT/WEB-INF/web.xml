@@ -53,17 +53,16 @@
         <url-pattern>/DesativarUsuario</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-<<<<<<< 7416e49ae5251c5e56097d3802b5684fb7bae424
         <servlet-name>ConcluirViagemServlet</servlet-name>
         <url-pattern>/Concluir/Viagem</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>CancelarViagemServlet</servlet-name>
         <url-pattern>/Cancelar/Viagem</url-pattern>
-        =======
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>AlterarUsuarioServlet</servlet-name>
         <url-pattern>/Usuario/Alterar</url-pattern>
-        >>>>>>> Alterar usuario
     </servlet-mapping>
     <session-config>
         <session-timeout>
