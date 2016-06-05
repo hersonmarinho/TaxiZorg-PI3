@@ -1,10 +1,12 @@
 package DAO;
 
+import com.mycompany.pi3_zorg.Usuario;
 import com.mycompany.pi3_zorg.Viagem;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class ViagemDAO {
     
@@ -85,5 +87,34 @@ public class ViagemDAO {
         }
         
         return false;
+    }
+    
+    public ArrayList<Viagem> listarViagens() {
+        String sql = "SELECT * FROM VIAGEM WHERE STATUS_VIAGEM = PROGRESSO";
+        ArrayList<Viagem> listaViagens = new ArrayList<>();
+        
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.executeQuery();
+            ResultSet rs = ps.getResultSet();
+
+            while (rs.next()) {
+                Viagem viagem = new Viagem();
+                
+                viagem.setCodViagem(rs.getInt("idviagem"));
+                viagem.setMatricula_funcionario(rs.getInt("matricula_funcionario"));
+                viagem.setTipoViagem(rs.getString("tipo_viagem"));
+                viagem.setInicioViagem(rs.getDate("inicio_viagem"));
+                viagem.setFimViagem(rs.getDate("fim_viagem"));
+                viagem.setNomeCliente(rs.getString("cliente_viagem"));
+                viagem.setId_end_destino(rs.getInt("id_end_inicio"));
+            }
+            ps.close();
+            return listaViagens;
+        } catch(SQLException ex){
+            System.out.println("Erro de SQL!");
+        }
+        
+        return listaViagens;
     }
 }

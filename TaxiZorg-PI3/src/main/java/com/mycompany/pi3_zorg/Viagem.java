@@ -70,6 +70,10 @@ public class Viagem {
         return codViagem;
     }
     
+    public void setCodViagem(int codViagem) {
+        this.codViagem = codViagem;
+    }
+    
     public int getId_end_partida() {
         return id_end_partida;
     }
