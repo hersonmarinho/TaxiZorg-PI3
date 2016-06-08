@@ -17,15 +17,13 @@ public class RelatorioDAO {
     }
 
     public ArrayList<Relatorio> listarRelatorioTaxi() {
-        String sql = "select nome_funcionario, sobrenome_funcionario, cliente_viagem, tipo_viagem, status_viagem "
+        String sql = "select nome_funcionario, sobrenome_funcionario, cliente_viagem, tipo_viagem, inicio_viagem, fim_viagem, status_viagem "
                 + "from viagem join funcionario on viagem.matricula_funcionario = funcionario.matricula_funcionario "
-                + "where funcionario.matricula_funcionario = ?;";
+                + "order by status_viagem";
         ArrayList<Relatorio> relatorios = new ArrayList<>();
-        Taxista taxista = new Taxista();
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1, taxista.getMatricula());
             ps.executeQuery();
             ResultSet rs = ps.getResultSet();
 
@@ -37,6 +35,8 @@ public class RelatorioDAO {
                 relatorio.setNomeCliente(rs.getString("cliente_viagem"));
                 relatorio.setTipoViagem(rs.getString("tipo_viagem"));
                 relatorio.setStatusViagem(rs.getString("status_viagem"));
+                relatorio.setInicioViagem(rs.getDate("inicio_viagem"));
+                relatorio.setFimViagem(rs.getDate("fim_viagem"));
                 relatorios.add(relatorio);
             }
 
@@ -44,7 +44,7 @@ public class RelatorioDAO {
             return relatorios;
             
         } catch (SQLException ex) {
-            System.out.println("Erro de SQL!");
+            System.out.println("Erro de SQL no relatorio!");
         }
 
         return relatorios;

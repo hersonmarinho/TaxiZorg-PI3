@@ -67,20 +67,6 @@ public class RelatorioServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        
-        int idtaxista = Integer.parseInt(request.getParameter("taxista"));
-        
-        
-        System.out.println(idtaxista);
-        
-        Taxista taxista = new Taxista();
-        taxista.setMatricula(idtaxista);
-        
-        Relatorio relatorio = new Relatorio();
-        relatorio.listarRelatoriosTaxista();
-        
-        //response.sendRedirect(request.getContextPath() + "/MainServlet#eight");
-        
     }
 
     /**

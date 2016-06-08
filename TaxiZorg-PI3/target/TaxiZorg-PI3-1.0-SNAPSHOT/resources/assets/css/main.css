@@ -2491,7 +2491,7 @@ header h6 + p {
 }
 
 .split.style1 > :nth-child(2n - 1) {
-    width: calc(66.66666% - 2.5em);
+    width: calc(80.66666% - 2.5em);
 }
 
 .split.style1 > :nth-child(2n) {
@@ -2513,7 +2513,7 @@ header h6 + p {
     }
 
     .split.style1 > :nth-child(2n - 1) {
-        width: calc(66.66666% - 2em);
+        width: calc(80.66666% - 2em);
     }
 
     .split.style1 > :nth-child(2n) {

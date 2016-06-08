@@ -3,9 +3,8 @@ package com.mycompany.pi3_zorg;
 
 import DAO.ViagemDAO;
 import DBConnection.DBConnection;
-import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.dateTime;
-import java.sql.Date;
 import java.util.ArrayList;
+import java.util.GregorianCalendar;
 
 public class Viagem {
     
@@ -14,8 +13,8 @@ public class Viagem {
     private int id_end_destino;
     private String nomeCliente;
     private String status;
-    private Date inicioViagem;
-    private Date fimViagem;
+    private GregorianCalendar inicioViagem;
+    private GregorianCalendar fimViagem;
     private int matricula_funcionario;
     private String tipoViagem;
     
@@ -24,7 +23,7 @@ public class Viagem {
         
     }
 
-    public Viagem(int codViagem, int id_end_partida, int id_end_destino, String nomeCliente, String status, Date inicioViagem, Date fimViagem, int matricula_funcionario) {
+    public Viagem(int codViagem, int id_end_partida, int id_end_destino, String nomeCliente, String status, GregorianCalendar inicioViagem, GregorianCalendar fimViagem, int matricula_funcionario) {
         this.codViagem = codViagem;
         this.id_end_partida = id_end_partida;
         this.id_end_destino = id_end_destino;
@@ -62,19 +61,19 @@ public class Viagem {
         this.status = status;
     }
 
-    public Date getInicioViagem() {
+    public GregorianCalendar getInicioViagem() {
         return inicioViagem;
     }
 
-    public void setInicioViagem(Date inicioViagem) {
+    public void setInicioViagem(GregorianCalendar inicioViagem) {
         this.inicioViagem = inicioViagem;
     }
 
-    public Date getFimViagem() {
+    public GregorianCalendar getFimViagem() {
         return fimViagem;
     }
 
-    public void setFimViagem(Date fimViagem) {
+    public void setFimViagem(GregorianCalendar fimViagem) {
         this.fimViagem = fimViagem;
     }
 

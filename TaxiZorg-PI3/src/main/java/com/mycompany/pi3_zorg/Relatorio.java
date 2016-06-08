@@ -8,6 +8,7 @@ package com.mycompany.pi3_zorg;
 import DAO.RelatorioDAO;
 import DBConnection.DBConnection;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  *
@@ -21,15 +22,21 @@ public class Relatorio {
     private int matriculaFuncionario;
     private String nomeFuncionario;
     private String sobrenomeFuncionario;
+    private Date inicioViagem;
+    private Date fimViagem;
 
-    public Relatorio(String nomeCliente, String statusViagem, String tipoViagem, int matriculaFuncionario, String nomeFuncionario, String sobrenomeFuncionario) {
+    public Relatorio(String nomeCliente, String statusViagem, String tipoViagem, int matriculaFuncionario, String nomeFuncionario, String sobrenomeFuncionario, Date inicioViagem, Date fimViagem) {
         this.nomeCliente = nomeCliente;
         this.statusViagem = statusViagem;
         this.tipoViagem = tipoViagem;
         this.matriculaFuncionario = matriculaFuncionario;
         this.nomeFuncionario = nomeFuncionario;
         this.sobrenomeFuncionario = sobrenomeFuncionario;
+        this.inicioViagem = inicioViagem;
+        this.fimViagem = fimViagem;
     }
+
+    
 
     public Relatorio(){
     }
@@ -80,6 +87,22 @@ public class Relatorio {
 
     public void setSobrenomeFuncionario(String sobrenomeFuncionario) {
         this.sobrenomeFuncionario = sobrenomeFuncionario;
+    }
+    
+    public Date getInicioViagem() {
+        return inicioViagem;
+    }
+
+    public void setInicioViagem(Date inicioViagem) {
+        this.inicioViagem = inicioViagem;
+    }
+
+    public Date getFimViagem() {
+        return fimViagem;
+    }
+
+    public void setFimViagem(Date fimViagem) {
+        this.fimViagem = fimViagem;
     }
     
     public ArrayList<Relatorio> listarRelatoriosTaxista(){

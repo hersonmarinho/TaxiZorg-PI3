@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class ViagemDAO {
     
@@ -17,7 +18,7 @@ public class ViagemDAO {
     }
     
     public boolean agendarViagem(Viagem viagem){
-        String sql = "INSERT INTO viagem (cliente_viagem, status_viagem, tipo_viagem, matricula_funcionario, id_end_partida, id_end_destino) VALUES (?,?,?,?,?,?);";
+        String sql = "INSERT INTO viagem (cliente_viagem, status_viagem, tipo_viagem, matricula_funcionario, id_end_partida, id_end_destino, inicio_viagem) VALUES (?,?,?,?,?,?,?);";
         
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -27,6 +28,9 @@ public class ViagemDAO {
             ps.setInt(4, viagem.getMatricula_funcionario());
             ps.setInt(5, viagem.getId_end_partida());
             ps.setInt(6, viagem.getId_end_destino());
+            Date utilDate = new java.util.Date();
+            Date data = new java.sql.Date(utilDate.getTime());
+            ps.setDate(7, (java.sql.Date) data);
             
             if (ps.executeUpdate() > 0){
                 System.out.println("viagem inserida com sucesso!");
@@ -44,11 +48,14 @@ public class ViagemDAO {
     }
     
     public boolean finalizarViagem(Viagem viagem){
-        String sql = "UPDATE viagem SET status_viagem = 'F' WHERE idviagem = ? ";
+        String sql = "UPDATE viagem SET status_viagem = 'CONCLUIDA', fim_viagem = date(?) where idviagem = ? ";
         
         try {
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1, viagem.getCodViagem());
+            Date utilDate = new java.util.Date();
+            Date data = new java.sql.Date(utilDate.getTime());
+            ps.setDate(1, (java.sql.Date) data);
+            ps.setInt(2, viagem.getCodViagem());
             ps.executeUpdate();
             
             if(ps.executeUpdate() > 0){
@@ -67,11 +74,14 @@ public class ViagemDAO {
     }
     
     public boolean cancelarViagem(Viagem viagem){
-        String sql = "UPDATE viagem SET status_viagem = 'C' WHERE idviagem = ? ";
+        String sql = "UPDATE viagem SET status_viagem = 'CANCELADA', fim_viagem = date(?) WHERE idviagem = ? ";
         
         try {
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1, viagem.getCodViagem());
+            Date utilDate = new java.util.Date();
+            Date data = new java.sql.Date(utilDate.getTime());
+            ps.setDate(1, (java.sql.Date) data);
+            ps.setInt(2, viagem.getCodViagem());
             ps.executeUpdate();
             
             if(ps.executeUpdate() > 0){

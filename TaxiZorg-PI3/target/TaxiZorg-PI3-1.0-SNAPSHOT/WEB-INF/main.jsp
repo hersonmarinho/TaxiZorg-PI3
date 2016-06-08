@@ -32,7 +32,7 @@
                         <li><a href="#three">Cadastre um Usuario</a></li>
                         <li><a href="#four">Desative um Usuario</a></li>
                         <li><a href="#five">Altere um Usuario</a></li>
-                        <li><a href="#eight">Relatório</a></li>
+                        <li><a href="#eight">Relatório Gerencial</a></li>
                         <li><a href="LogoutServlet">Logout</a></li>
                     </ul>
                 </nav>
