@@ -2,6 +2,7 @@ package servlet;
 
 import DAO.UsuarioDAO;
 import DBConnection.DBConnection;
+import com.mycompany.pi3_zorg.Acesso;
 import com.mycompany.pi3_zorg.Usuario;
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
@@ -44,7 +45,8 @@ public class LoginServlet extends HttpServlet {
         
         
         if(dao.login(userTela)){
-        
+            Acesso access = dao.acessoUsuario(userTela);
+            sessao.setAttribute("acesso", access.getTipoAcesso());
             response.sendRedirect(request.getContextPath() + "/MainServlet");
         
         } else {

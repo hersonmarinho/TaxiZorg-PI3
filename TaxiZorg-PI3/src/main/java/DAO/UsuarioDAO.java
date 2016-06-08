@@ -1,5 +1,6 @@
 package DAO;
 
+import com.mycompany.pi3_zorg.Acesso;
 import com.mycompany.pi3_zorg.Usuario;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -50,7 +51,7 @@ public class UsuarioDAO {
             ps.executeQuery();
             ResultSet rs = ps.getResultSet();
             Usuario user = new Usuario();
-            
+
             while (rs.next()) {
                 user.setCodUsuario(rs.getInt("idusuario"));
                 user.setLogin(rs.getString("login_usuario"));
@@ -64,9 +65,10 @@ public class UsuarioDAO {
         }
         return null;
     }
-    
-    public boolean login(Usuario usuario){
-        String sql = "SELECT * FROM usuario JOIN funcionario ON usuario.idusuario = funcionario.idusuario "
+
+    public boolean login(Usuario usuario) {
+        String sql = "SELECT * FROM usuario "
+                + "JOIN funcionario ON usuario.idusuario = funcionario.idusuario "
                 + "where funcionario.status_funcionario = 'A' and usuario.login_usuario = ? and usuario.senha_usuario = ?";
 
         try {
@@ -76,15 +78,15 @@ public class UsuarioDAO {
             ps.executeQuery();
             ResultSet rs = ps.getResultSet();
             Usuario user = new Usuario();
-            
+
             while (rs.next()) {
                 user.setCodUsuario(rs.getInt("idusuario"));
                 user.setLogin(rs.getString("login_usuario"));
                 user.setSenha(rs.getString("senha_usuario"));
             }
             ps.close();
-            
-            if(user.getLogin() == null || user.getSenha() == null){
+
+            if (user.getLogin() == null || user.getSenha() == null) {
                 return false;
             } else {
                 return true;
@@ -96,6 +98,31 @@ public class UsuarioDAO {
         return false;
     }
 
+    public Acesso acessoUsuario(Usuario user) {
+        String sql = "SELECT * FROM usuario "
+                + "JOIN funcionario ON usuario.idusuario = funcionario.idusuario "
+                + "JOIN acesso on usuario.idacesso = acesso.idacesso "
+                + "WHERE funcionario.status_funcionario = 'A' and usuario.login_usuario = ? and usuario.senha_usuario = ? ";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, user.getLogin());
+            ps.setString(2, user.getSenha());
+            ps.executeQuery();
+            ResultSet rs = ps.getResultSet();
+
+            while (rs.next()) {
+                Acesso acesso = new Acesso();
+                acesso.setIdAcesso(rs.getInt("idacesso"));
+                acesso.setTipoAcesso(rs.getString("tipoacesso"));
+                user.setAcesso(acesso);
+            }
+
+        } catch (SQLException ex) {
+
+        }
+        return user.getAcesso();
+    }
+
     public boolean inserirUsuario(Usuario usuario) {
         String sql = "insert into usuario (login_usuario, senha_usuario, idunidade, idacesso) values (?, ?, ?, ?);";
 
@@ -104,7 +131,7 @@ public class UsuarioDAO {
             ps.setString(1, usuario.getLogin());
             ps.setString(2, usuario.getSenha());
             ps.setInt(3, usuario.getUnidade());
-            ps.setInt(4, usuario.getAcesso());
+            ps.setInt(4, usuario.getAcesso().getIdAcesso());
 
             if (ps.executeUpdate() > 0) {
                 System.out.println("Usuario inserido com sucesso!");

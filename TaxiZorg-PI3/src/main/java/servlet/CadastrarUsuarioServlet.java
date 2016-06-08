@@ -8,6 +8,7 @@ package servlet;
 import DAO.FuncionarioDAO;
 import DAO.UsuarioDAO;
 import DBConnection.DBConnection;
+import com.mycompany.pi3_zorg.Acesso;
 import com.mycompany.pi3_zorg.Funcionario;
 import com.mycompany.pi3_zorg.Usuario;
 import java.io.IOException;
@@ -69,7 +70,9 @@ public class CadastrarUsuarioServlet extends HttpServlet {
         user.setLogin(usuario);
         user.setSenha(senha);
         user.setUnidade(unidade);
-        user.setAcesso(acesso);
+        Acesso access = new Acesso();
+        access.setIdAcesso(acesso);
+        user.setAcesso(access);
 
         UsuarioDAO userDao = new UsuarioDAO(con.getConexaoMySQL());
         userDao.inserirUsuario(user);

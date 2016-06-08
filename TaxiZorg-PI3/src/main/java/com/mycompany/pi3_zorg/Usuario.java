@@ -6,7 +6,7 @@ public class Usuario {
 
     private String login;
     private String senha;
-    private int acesso;
+    private Acesso acesso;
     private int unidade;
     private int codUsuario;
 
@@ -17,11 +17,7 @@ public class Usuario {
     public Usuario(String login, String senha, int acesso) {
         this.login = login;
         this.senha = senha;
-        this.acesso = acesso;
-    }
-
-    public int autenticar(String login, String senha) {
-        return this.getAcesso();
+        this.acesso.setIdAcesso(acesso);
     }
 
     public boolean deslogar() {
@@ -48,11 +44,11 @@ public class Usuario {
         this.senha = senha;
     }
 
-    public int getAcesso() {
+    public Acesso getAcesso() {
         return acesso;
     }
 
-    public void setAcesso(int acesso) {
+    public void setAcesso(Acesso acesso) {
         this.acesso = acesso;
     }
 

@@ -26,13 +26,17 @@
                     <ul>
                         <li><img src="resources/img/taxiicon.png" width="125px" align="middle"  style="margin-right: 25%;"/></li>
                         <li><a href="#intro">Bem-Vindo</a></li>
-                        <li><a href="#two">Crie uma viagem</a></li>
-                        <li><a href="#six">Concluir Viagem</a></li>
-                        <li><a href="#seven">Cancelar Viagem</a></li>
-                        <li><a href="#three">Cadastre um Usuario</a></li>
-                        <li><a href="#four">Desative um Usuario</a></li>
-                        <li><a href="#five">Altere um Usuario</a></li>
-                        <li><a href="#eight">Relatório Gerencial</a></li>
+                            <c:if test="${sessionScope.acesso == 'oper' || sessionScope.acesso == 'gere' || sessionScope.acesso == 'ceo'}">
+                            <li><a href="#two">Crie uma viagem</a></li>
+                            <li><a href="#six">Concluir Viagem</a></li>
+                            <li><a href="#seven">Cancelar Viagem</a></li>
+                            </c:if>
+                            <c:if test="${sessionScope.acesso == 'gere' || sessionScope.acesso == 'ceo'}">
+                            <li><a href="#three">Cadastre um Usuario</a></li>
+                            <li><a href="#four">Desative um Usuario</a></li>
+                            <li><a href="#five">Altere um Usuario</a></li>
+                            <li><a href="#eight">Relatório Gerencial</a></li>
+                            </c:if>
                         <li><a href="LogoutServlet">Logout</a></li>
                     </ul>
                 </nav>
@@ -50,33 +54,47 @@
                 </div>
             </section>
             <!-- Two - Cadastro de viagem -->
-            <section id="two" class="wrapper style1 fade-up">
-                <jsp:include page="viagem.jsp" />
-            </section>
-            <!-- Six -->
-            <section id="six" class="wrapper style1 fade-up">
-                <jsp:include page="concluir-viagem.jsp" />
-            </section>
-            <!-- Seven -->
-            <section id="seven" class="wrapper style1 fade-up">
-                <jsp:include page="cancelar-viagem.jsp" />
-            </section>
-            <!-- Three -->
-            <section id="three" class="wrapper style1 fade-up">
-                <jsp:include page="cadastro-usuario.jsp" />
-            </section>
-            <!-- Four -->
-            <section id="four" class="wrapper style1 fade-up">
-                <jsp:include page="desativar-usuario.jsp" />
-            </section>
-            <!-- Five -->
-            <section id="five" class="wrapper style1 fade-up">
-                <jsp:include page="alterar-usuario.jsp" />
-            </section>
-            <!-- Eight -->
-            <section id="eight" class="wrapper style1 fade-up">
-                <jsp:include page="relatorio.jsp"/>
-            </section>
+            <c:if test="${sessionScope.acesso == 'oper' || sessionScope.acesso == 'gere' || sessionScope.acesso == 'ceo'}">
+                <section id="two" class="wrapper style1 fade-up">
+                    <jsp:include page="viagem.jsp" />
+                </section>
+            </c:if>
+            <c:if test="${sessionScope.acesso == 'oper' || sessionScope.acesso == 'gere' || sessionScope.acesso == 'ceo'}">
+                <!-- Six -->
+                <section id="six" class="wrapper style1 fade-up">
+                    <jsp:include page="concluir-viagem.jsp" />
+                </section>    
+            </c:if>
+            <c:if test="${sessionScope.acesso == 'oper' || sessionScope.acesso == 'gere' || sessionScope.acesso == 'ceo'}">
+                <!-- Seven -->
+                <section id="seven" class="wrapper style1 fade-up">
+                    <jsp:include page="cancelar-viagem.jsp" />
+                </section>    
+            </c:if>
+            <c:if test="${sessionScope.acesso == 'gere' || sessionScope.acesso == 'ceo'}">
+                <!-- Three -->
+                <section id="three" class="wrapper style1 fade-up">
+                    <jsp:include page="cadastro-usuario.jsp" />
+                </section>
+            </c:if>
+            <c:if test="${sessionScope.acesso == 'gere' || sessionScope.acesso == 'ceo'}">
+                <!-- Four -->
+                <section id="four" class="wrapper style1 fade-up">
+                    <jsp:include page="desativar-usuario.jsp" />
+                </section>
+            </c:if>
+            <c:if test="${sessionScope.acesso == 'gere' || sessionScope.acesso == 'ceo'}">
+                <!-- Five -->
+                <section id="five" class="wrapper style1 fade-up">
+                    <jsp:include page="alterar-usuario.jsp" />
+                </section>
+            </c:if>
+            <c:if test="${sessionScope.acesso == 'gere' || sessionScope.acesso == 'ceo'}">
+                <!-- Eight -->
+                <section id="eight" class="wrapper style1 fade-up">
+                    <jsp:include page="relatorio.jsp"/>
+                </section>
+            </c:if>
         </div>
 
         <!-- Footer -->
