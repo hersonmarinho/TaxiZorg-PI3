@@ -105,13 +105,13 @@ public class Relatorio {
         this.fimViagem = fimViagem;
     }
     
-    public ArrayList<Relatorio> listarRelatoriosTaxista(){
+    public ArrayList<Relatorio> listarRelatorios(){
         DBConnection con = new DBConnection();
         RelatorioDAO relatorioDao = new RelatorioDAO(con.getConexaoMySQL());
 
         ArrayList<Relatorio> relatorios = new ArrayList<>();
         
-        relatorios = relatorioDao.listarRelatorioTaxi();
+        relatorios = relatorioDao.listarRelatorio();
         
         return relatorios;
     }

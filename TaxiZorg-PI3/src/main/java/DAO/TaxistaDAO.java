@@ -30,8 +30,9 @@ public class TaxistaDAO {
         String sql = "SELECT * FROM funcionario JOIN usuario ON funcionario.idusuario = usuario.idusuario " +
                 "JOIN acesso ON usuario.idacesso = acesso.idacesso "
                 + "LEFT JOIN viagem on funcionario.matricula_funcionario = viagem.matricula_funcionario "
-                + "WHERE tipoacesso = 'taxi' AND (viagem.status_viagem <> 'progresso' "
-                + "or viagem.matricula_funcionario is null) AND funcionario.status_funcionario = 'A'";
+                + "WHERE tipoacesso = 'Taxista' AND (viagem.status_viagem <> 'progresso' "
+                + "or viagem.matricula_funcionario is null) AND funcionario.status_funcionario = 'A'"
+                + "group by funcionario.matricula_funcionario";
         ArrayList<Taxista> taxistas = new ArrayList<>();
 
         try{

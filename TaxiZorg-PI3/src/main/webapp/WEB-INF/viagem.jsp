@@ -65,9 +65,9 @@
                     <label for="viagem">Tipo de Viagem</label>
                     <select name="viagem" id="viagem">
                         <option>Selecione</option>
-                        <option value="comum">Comum</option>
-                        <option value="diario">Diário</option>
-                        <option vale="viagem">Viagem</option>
+                        <option value="Comum">Comum</option>
+                        <option value="Diario">Diário</option>
+                        <option vale="Viagem">Viagem</option>
                     </select>
                 </div>
 

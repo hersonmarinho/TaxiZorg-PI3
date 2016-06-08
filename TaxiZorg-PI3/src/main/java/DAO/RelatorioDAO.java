@@ -16,10 +16,10 @@ public class RelatorioDAO {
         this.con = con;
     }
 
-    public ArrayList<Relatorio> listarRelatorioTaxi() {
+    public ArrayList<Relatorio> listarRelatorio() {
         String sql = "select nome_funcionario, sobrenome_funcionario, cliente_viagem, tipo_viagem, inicio_viagem, fim_viagem, status_viagem "
                 + "from viagem join funcionario on viagem.matricula_funcionario = funcionario.matricula_funcionario "
-                + "order by status_viagem";
+                + "order by nome_funcionario";
         ArrayList<Relatorio> relatorios = new ArrayList<>();
 
         try {

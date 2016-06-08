@@ -7,7 +7,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <div class="inner">
-    <h2>Cadastrar</h2>
+    <h2>Cadastrar Usuário</h2>
     <p>Inclua um usuário no sistema.</p>
     <div class="split style1">
         <section>
