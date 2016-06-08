@@ -38,6 +38,7 @@ public class AcessoDAO {
                 acesso.setTipoAcesso(rs.getString("tipoacesso"));
                 acessos.add(acesso);
             }
+            ps.close();
         }catch(SQLException ex){
             System.err.println("Não foi possível obter a lista de acessos");
         }
