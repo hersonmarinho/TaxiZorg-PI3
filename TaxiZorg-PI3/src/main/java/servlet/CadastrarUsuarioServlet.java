@@ -5,6 +5,7 @@
  */
 package servlet;
 
+import Criptografia.Criptografia;
 import DAO.FuncionarioDAO;
 import DAO.UsuarioDAO;
 import DBConnection.DBConnection;
@@ -68,7 +69,9 @@ public class CadastrarUsuarioServlet extends HttpServlet {
         
         Usuario user = new Usuario();
         user.setLogin(usuario);
-        user.setSenha(senha);
+
+        user.setSenha(Criptografia.gerarHash(senha));
+        System.out.println(user.getSenha());
         user.setUnidade(unidade);
         Acesso access = new Acesso();
         access.setIdAcesso(acesso);

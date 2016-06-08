@@ -1,5 +1,6 @@
 package com.mycompany.pi3_zorg;
 
+import Criptografia.Criptografia;
 import DAO.UsuarioDAO;
 
 public class Usuario {
@@ -16,9 +17,10 @@ public class Usuario {
 
     public Usuario(String login, String senha, int acesso) {
         this.login = login;
-        this.senha = senha;
+        this.senha = Criptografia.gerarHash(senha);
         this.acesso.setIdAcesso(acesso);
     }
+    
 
     public boolean deslogar() {
         return false;

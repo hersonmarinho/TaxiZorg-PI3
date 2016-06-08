@@ -1,5 +1,6 @@
 package servlet;
 
+import Criptografia.Criptografia;
 import DAO.UsuarioDAO;
 import DBConnection.DBConnection;
 import com.mycompany.pi3_zorg.Acesso;
@@ -38,7 +39,7 @@ public class LoginServlet extends HttpServlet {
         HttpSession sessao = request.getSession(false);
         Usuario userTela = new Usuario();
         userTela.setLogin(usuario);
-        userTela.setSenha(senha);
+        userTela.setSenha(Criptografia.gerarHash(senha));
         
         DBConnection con = new DBConnection();
         UsuarioDAO dao = new UsuarioDAO(con.getConexaoMySQL());
